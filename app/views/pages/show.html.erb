@@ -1,0 +1,35 @@
+<div id="slideshow" class="container-fluid"><!-- Slideshow -->
+  <%= banners %>
+</div><!-- ./Slideshow -->
+
+<!-- Page Content -->
+<div id="wrapper" class="container">
+
+  <!-- LATEST Section -->
+  <div class="row no-gutters">
+  	<div class="col-md-12 title">
+  		<span class="line"></span>
+  		<h2>LATEST</h2>
+		
+  		<span class="catalogBtn floatRight"><%= link_to(raw('See all <i class="fa fa-chevron-right"></i><i class="fa fa-chevron-right"></i>'), catalogs_all_url) %></span>
+  	</div>
+	
+  	<%= episodes mode: 'latest' %>
+
+  </div>
+  <!-- /.row -->
+
+  <!-- POPULAR Section -->
+  <div class="row">
+  	<div class="col-md-12 title">
+  		<span class="line"></span>
+  		<h2>Popular</h2>
+  	</div>
+	
+  	<%= episodes mode: 'popular' %>
+
+    </div>
+  <!-- /.row -->
+
+</div>
+<!-- /.wrapper -->
