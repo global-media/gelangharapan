@@ -7,6 +7,8 @@ class Gallery < ActiveRecord::Base
 
   validates_presence_of :title
   
+  scope :active, -> { where("publish_at < NOW() AND (retract_at IS NULL OR retract_at > NOW())") }
+  
   before_create :initialize_sort!
   before_save :set_tags
   

@@ -26,20 +26,6 @@
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @event.errors[:description].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Description</label>
-		<div class="col-md-10">
-      <%= f.text_area :description, class: "form-control autosizeme#{' error' unless @event.errors[:description].blank?}", placeholder: 'Enter Description', id: 'form_control_1' %>			
-      <div class="form-control-focus"></div>
-		</div>
-	</div>
-	<div class="form-group form-md-line-input">
-	  <label class="col-md-2 control-label" for="form_control_1">Tags</label>
-		<div class="col-md-10">
-      <%= f.select :tag_ids, tagging_options, {selected: @event.tags.collect(&:id)}, {class: "form-control input-xlarge select2me", multiple: true, id: 'form_control_1', "data-placeholder" => "Select Tags..."} %>
-			<div class="form-control-focus"></div>
-		</div>
-	</div>
   <div class="form-group form-md-line-input<%' has-error' unless @event.errors[:publish_at].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
 		<div class="col-md-6">
@@ -64,4 +50,26 @@
 			<!-- /input-group -->
 		</div>
 	</div>
+	<div class="form-group form-md-line-input<%' has-error' unless @event.errors[:image].blank? %>">
+		<label class="col-md-2 control-label" for="form_control_1">Image Upload</label>
+ 		<div class="col-md-6 fileinput fileinput-<%= @event.image.exists? ? 'exists' : 'new' %>" data-provides="fileinput">
+			<div class="fileinput-<%= @event.image.exists? ? 'exists' : 'new' %> thumbnail">
+			  <%= image_tag @event.image.url(:medium) %>
+			</div>
+<!--			<div class="fileinput-preview fileinput-<%= !@event.image.exists? ? 'exists' : 'new' %> thumbnail"></div> -->
+			<div class="fileinput-previewimg fileinput-preview thumbnail" style="display:none;"></div>
+      <div id="fileinput-noimage" class="fileinput-noimage thumbnail" style="display:none;">
+			  <%= image_tag @event.image.options[:default_url] %>
+			</div>
+			<div>
+				<span class="btn default btn-file">
+  				<span class="fileinput-new fileinput-noimage">Select image </span>
+  				<span class="fileinput-exists fileinput-preview">Change </span>
+				  <%= f.file_field :image, as: :file, class: "form-control#{' error' unless @event.errors[:image].blank?}" %>
+				</span>
+				<a href="javascript:;" class="btn default fileinput-exists fileinput-preview" data-dismiss="fileinput">Remove </a>
+			</div>
+		</div>
+	</div>
+
 </div>

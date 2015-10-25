@@ -1,0 +1,274 @@
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+	  #home .menu__atas .fa {
+    font-size: 20px;
+    position: relative;
+    top: 10px!important;
+    left: 15px;
+    font-size: 22px!important;
+    color: white;
+}
+	  .h4, h4 {
+    font-size: 16px!important;
+}
+	  .menu__atas li a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    padding:0px!important;
+    font-family: tebel;
+    font-style: normal;
+    font-size: 11px!important;
+}
+.pic__1 .fa {
+    color: white;
+    position: absolute;
+    top: 50%!important;
+    margin-left: -6.5%!important;
+    font-size: 46px!important;
+}
+	  .navbar-nav>li {
+    float: left;
+     margin: 6px!important;
+}
+	  .menu{    padding: 0px!important;
+    width: 100%!important;}
+	
+	  .navbar-inverse .navbar-collapse, .navbar-inverse .navbar-form {
+    border-color: #101010;
+    padding: 0px;
+}
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 11px!important;
+}
+.mobile__login{
+      margin: 0px -39px 0px 0px!important;
+}
+
+.navbar {
+    position: relative;
+     min-height: auto!important;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+#home .menu__atas li a {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+     padding: 0px!important;
+    font-family: tebel;
+    font-style: normal;
+}
+p {
+    font-family: standart;
+    font-size: 13px!important;
+    letter-spacing: 0px!important;
+}
+.home__content--4 h4 {
+    margin: 5% 0px 4% 0px!important;
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+padding: 0px!Important; 
+}
+.health__content--1 p {
+    margin: 0% 12% 0px 12%!important;
+}.story__content--2 p {
+    margin: 0px 16% 0px 16%!important;
+    line-height: 20px;
+}
+  .home__content--4 p {font-size:12px!important}
+.pic__1 {
+    background: url('/assets/img/home-1.jpg')no-repeat;
+    width: 100%;
+       height: 433px!important;
+    background-size: 100%!important; 
+     background-position: 0px 0px!important; 
+}
+
+.people__content--1 p {
+    margin: 0% 12% -22% 12%!important;
+}
+.pic__1 .putih {
+    margin-top: 6%;
+    width: 56%;
+}
+
+#about {
+    background: url('/assets/img/home-3.jpg')no-repeat;
+    width: 100%;
+    height: 370px!important;
+    background-size: 100%!important;
+}
+.people__content--2 {
+    margin: 0px 0px -36px 0px!important;
+}
+.home__content--4 h3 {
+    text-transform: uppercase;
+    font-family: tipis;
+    letter-spacing: 4px;
+     font-size: 14px!important;
+    margin: 2% 0px 3% 0px;
+}
+
+.home__content--4 h4:first-child {
+    margin: 5% 0px 5% 0px!Important;
+}
+.home__content--4 img {
+        width: 117%!important;
+    margin: 0px 0px -1px -35px!important;
+    HEIGHT: 431PX!important;
+}
+
+.home__content--5 h3 {
+    text-align: center;
+    color: white;
+    margin: 15% 0px 27% 0px!important;
+    height: 40px;
+    line-height: 32px;
+    font-family: miring;
+}
+.home__content--6 {
+    background: url('/assets/img/home-5.jpg')no-repeat;
+    width: 100%;
+    height: 320px!important;
+
+    background-size: 119%!important;
+    background-position: -55px 0px!important;
+}
+.home__content--7 h3 {
+    text-align: center;
+    color: white;
+    padding: 10% 0px 18% 0px!important;
+}
+
+.footer {
+    background: url('/assets/img/footer.png')no-repeat;
+    width: 100%;
+    height: 194px!important;
+    background-size: 100%!important;
+    position: absolute;
+    bottom: 0;
+}
+
+.people__content--1 .cover {
+    background: url('/assets/img/people/people.jpg')no-repeat;
+    width: 100%;
+    height: 1223px!important;
+    background-size: 100%!important;
+}
+
+.people__content--2	h3 {
+    margin: 8% 0px 5% 0px;
+    font-size: 15px!important;
+}
+
+.people__content--2 p {
+    font-family: standart;
+    font-size: 13px!important;
+    letter-spacing: 1px;
+}
+
+.matahari {
+    width: 23%!important;
+    margin: 1% 0px -7% 0px;
+}
+
+.bracelet__content--1 .cover {
+    background: url('/assets/img/bracelet/cover.jpg')no-repeat;
+    width: 100%;
+    height: 438px!important;
+    background-size: 100%!important;
+}
+
+.story__content--1 .cover {
+    background: url('/assets/img/Story/story-2.jpg')no-repeat;
+    width: 100%;
+    height: 373px!important;
+    background-size: 100%;
+    background-position: 0px -62px!Important;
+}
+
+.story__content--2 .balon {
+    background: url('/assets/img/Story/balon.png')no-repeat;
+    width: 324px;
+    height: 254px!Important;
+    background-size: 54%!Important;
+    background-position: 106px 0px!Important;
+}
+
+.story__content--3 {
+    background: url('/assets/img/Story/story-3.jpg')no-repeat;
+    width: 100%;
+    height: 821px!important;
+    background-size: 100%!important;
+    margin: 0px 0px -67px 0px;
+}
+
+.contact__content--1 .container{
+	background:white;
+	z-index:9999
+}
+
+#googleMap {
+    height: 349px!Important;
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0px);
+    background-color: rgb(229, 227, 223);
+    top: -49px!Important;
+    z-index: -1!Important;
+}
+.login__content--2 input {
+    padding: 1% 11% 1% 2%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    border: 1px solid black;
+    width: 41%!important;
+}
+
+.forgot__pass {
+    font-family: standart;
+    width: 41%!important;
+    padding: 3px;
+    margin-top: 0px;
+}
+
+.register__content--2 .form {
+    width: 51%!important;
+    font-family: standart;
+}
+
+.journey__content--1 .cover {
+    background: url('/assets/img/journey/journey-1.jpg')no-repeat;
+    width: 100%;
+    height: 434px!important;
+    background-size: 100%!important;
+}
+
+.journey__content--2 li {
+    display: inline-block;
+    margin: 6% 3% 6% 0%;
+    float: left;
+    width: 22%!important;
+}
+
+.journey__content--3 iframe {
+    margin-bottom: 20px;
+    width: 100%!important;
+    height: 100%!important;
+}
+
+.journey__content--3 p {
+    margin: 0% 12% 10% 0px!important;
+}
+.journey__content--3 h3 {
+    margin: 0px 0px 12px 0px!important;
+}
+  }

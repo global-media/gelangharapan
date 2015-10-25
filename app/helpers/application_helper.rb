@@ -1,6 +1,14 @@
 module ApplicationHelper
   include Rack::Recaptcha::Helpers
 
+  def english?
+    params[:lang] == 'en'
+  end
+  
+  def indonesian?
+    params[:lang] == 'id'
+  end
+  
   protected
   
     def default_options(options)

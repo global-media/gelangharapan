@@ -1,0 +1,44 @@
+  <div id="journey" class="container-fluid">
+    
+  <section class="journey__content--1">
+
+    <%= render partial: 'layouts/top_navbar' %>
+
+    <div class="container menu">
+    
+      <%= render partial: 'layouts/navbar' %>
+					
+		</div>
+
+    
+    <%= banners %>
+    
+
+		<div hidden class="cover">
+		</div>
+	</section>
+
+	<section class="journey__content--2">
+		<div class="container">
+
+		<ul hidden>      
+		  <li><img class="img-responsive" src="/assets/img/journey/journey-2-2.jpg"></li>
+			<li><img class="img-responsive"  src="/assets/img/journey/journey-2-4.jpg"></li>
+			<li><img  class="img-responsive" src="/assets/img/journey/journey-2-3.jpg"></li>
+			<li><img class="img-responsive"  src="/assets/img/journey/journey-2-5.jpg"></li>
+		</ul>
+
+    <%= journey_header %>
+
+		</div>
+	</section>
+
+  <section class="journey__content--3">
+    <div class="container">
+    
+      <%= journey_videos %>
+
+  	</div>
+  </section>
+
+  </div>

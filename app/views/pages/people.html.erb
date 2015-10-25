@@ -1,0 +1,32 @@
+  <div id="people" class="container-fluid">
+  <section class="people__content--1">
+
+    <%= render partial: 'layouts/top_navbar' %>
+
+    <div class="container menu">
+
+      <%= render partial: 'layouts/navbar' %>
+
+		</div>
+		<div class="container">
+
+      <%= people_header %>
+      
+		</div>
+		<div class="cover">
+		
+		</div>
+		</section>
+	  <section class="people__content--2">
+	  <div class="col-md-6 col-xs-12 col-sm-6">	<img class="img-responsive" src="/assets/img/home-4.jpg"></div>
+	  <div class="col-md-6  col-xs-12 col-sm-6">
+	    
+      <%= people_quote(:jenna) %>
+	    
+	    <%= people_quote(:wulan) %>
+
+	    <%= people_quote(:amanda) %>
+
+    </div>
+    </section>
+</div>	  

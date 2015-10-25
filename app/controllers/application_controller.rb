@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   include Rack::Recaptcha::Helpers
 
-  SITE_URL = 'kosmik.id'.freeze
-  SITE_NAME = 'Kosmik'.freeze
-  SITE_ICON = 'assets/img/ico.png'.freeze
+  SITE_URL = '/'.freeze
+  SITE_NAME = 'Hope'.freeze
+  SITE_ICON = 'assets/img/logo.png'.freeze
   SITE_LOGO = 'assets/img/logo.png'.freeze
   
   # Prevent CSRF attacks by raising an exception.

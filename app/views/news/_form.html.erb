@@ -13,33 +13,6 @@
       <div class="form-control-focus"></div>
 		</div>
 	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:date].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Date</label>
-		<div class="col-md-6">
-			<!--div class="input-group input-medium date" data-date="12-02-2012" data-date-viewmode="years"-->
-		  <div class="input-group input-medium date" data-date-format="yyyy-mm-dd">
-				<%= f.text_field :date, value: date_value(@news.date), class: "form-control#{' error' unless @news.errors[:date].blank?} input-medium date-picker", size: 16, placeholder: 'Select Date', 'data-date-format' => "yyyy-mm-dd" %>	
-				<!--span class="input-group-btn">
-				<button class="btn default date date-set" type="button"><i class="fa fa-calendar"></i></button>
-				</span-->
-			</div>
-			<!-- /input-group -->
-		</div>
-	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:headline].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Headline</label>
-		<div class="col-md-10">
-      <%= f.text_field :headline, class: "form-control#{' error' unless @news.errors[:headline].blank?}", placeholder: 'Enter Headline', id: 'form_control_1' %>			
-      <div class="form-control-focus"></div>
-		</div>
-	</div>
-	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:keyword].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Keyword</label>
-		<div class="col-md-10">
-      <%= f.text_field :keyword, class: "form-control#{' error' unless @news.errors[:keyword].blank?}", placeholder: 'Enter Keyword', id: 'form_control_1' %>			
-      <div class="form-control-focus"></div>
-		</div>
-	</div>
 	<div class="form-group form-md-line-input<%' has-error' unless @news.errors[:article].blank? %>">
 		<label class="col-md-2 control-label" for="form_control_1">Article</label>
 		<div class="col-md-10">
@@ -52,13 +25,6 @@
 		<div class="col-md-10">
       <%= f.text_field :link_url, class: "form-control#{' error' unless @news.errors[:link_url].blank?}", placeholder: 'Enter Link URL', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
-		</div>
-	</div>
-	<div class="form-group form-md-line-input">
-	  <label class="col-md-2 control-label" for="form_control_1">Tags</label>
-		<div class="col-md-10">
-      <%= f.select :tag_ids, tagging_options, {selected: @news.tags.collect(&:id)}, {class: "form-control input-xlarge select2me", multiple: true, id: 'form_control_1', "data-placeholder" => "Select Tags..."} %>
-			<div class="form-control-focus"></div>
 		</div>
 	</div>
   <div class="form-group form-md-line-input<%' has-error' unless @news.errors[:publish_at].blank? %>">

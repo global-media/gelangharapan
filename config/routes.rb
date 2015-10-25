@@ -63,6 +63,7 @@ Rails.application.routes.draw do
     # (app/controllers/admin/products_controller.rb)
     # get 'settings/:action', controller: 'settings'
     
+    
     post 'login', controller: 'admin', action: 'authenticate', on: :collection
     post 'signup', controller: 'admin', action: 'register', on: :collection
     post 'forgot', controller: 'admin', action: 'reset', on: :collection
@@ -80,18 +81,14 @@ Rails.application.routes.draw do
       resources :banners do
         post 'sort', on: :collection
       end
-      
-      resources :comics do
-        resources :episodes do
-          post 'sort', on: :collection
-          resources :images, only: [:create, :destroy] do
-            post 'sort', on: :collection
-          end
-        end
+      resources :videos do
         post 'sort', on: :collection
       end
-      
       resources :news do
+        post 'sort', on: :collection
+        resources :images, only: [:create, :destroy]
+      end
+      resources :stories do
         post 'sort', on: :collection
         resources :images, only: [:create, :destroy]
       end
@@ -109,16 +106,7 @@ Rails.application.routes.draw do
       end
     end
 
-    resource :store, controller: 'store' do
-      resources :products do 
-        post 'sort', on: :collection
-        # get ':action', on: :collection, as: 'action'
-        resources :images, only: [:create, :destroy]
-        resources :product_items, as: 'items' do
-          post 'sort', on: :collection
-        end
-      end
-      
+    resource :store, controller: 'store' do      
       resources :orders, except: [:new, :create, :destroy] do
         post 'cancel/:id', on: :collection, action: 'cancel', as: 'cancel'
         post 'revert/:id', on: :collection, action: 'revert', as: 'revert'
@@ -126,45 +114,31 @@ Rails.application.routes.draw do
         get ':id/:action', on: :collection, as: 'action', id: nil
       end
       
-      resources :collections do
-        post 'sort', on: :collection
-        get ':action', on: :collection, as: 'action'
-      end
-      
       resources :customers
     end
-
-    resources :tags do
-      post 'sort', on: :collection
-    end
-
-    resource :mailings do
-      resources :campaigns, controller: 'mailing_campaigns'
-      resources :lists, controller: 'mailing_lists'
-    end
     
-    resources :dashboards
-        
-    # resources :maps do 
-    #   get ':action', on: :collection, as: 'action'
-    # end        
     # resources :forms
     
     get ':action', controller: 'admin', on: :collection, as: 'action'
   end  
   
-  resource :pages do
-    resources :comics
-    resources :episodes
-  end
+  get 'login', controller: 'authenticate', action: 'login', as: 'authenticate_login'
+  get 'register', controller: 'authenticate', action: 'register', as: 'authenticate_register'
+    
   
-  post 'mailing_lists/signup', controller: 'mailing_lists', action: 'signup'
-
-  get 'catalogs', controller: 'catalogs', as: 'catalogs_all', action: 'comics'
-  get 'catalogs/:comic', controller: 'catalogs', comic: nil, as: 'catalogs_comic', action: 'comic'
-  get 'catalogs/episode/:episode', controller: 'catalogs', episode: nil, as: 'catalogs_comic_episode', action: 'episode'
+  get ':lang/index', controller: 'pages', action: 'index', as: 'pages_index'
+  get ':lang/journey', controller: 'pages', action: 'journey', as: 'pages_journey'
+  get ':lang/people', controller: 'pages', action: 'people', as: 'pages_people'
+  get ':lang/news', controller: 'pages', action: 'news', as: 'pages_news'
+  get ':lang/events', controller: 'pages', action: 'events', as: 'pages_events'
+  get ':lang/bracelet', controller: 'pages', action: 'bracelet', as: 'pages_bracelet'
+  get ':lang/story', controller: 'pages', action: 'story', as: 'pages_story'
+  get ':lang/contact', controller: 'pages', action: 'contact', as: 'pages_contact'
   
-  get ':controller/:action/:id'
+  get ':lang', controller: 'pages', action: 'index', as: 'pages_lang', :defaults => {:lang => "id"}
   
-  get '/', controller: 'pages', action: 'show'  
+    
+  # get ':controller/:action/:id'
+  
+  get '/', controller: 'pages', action: 'index', lang: 'id'
 end

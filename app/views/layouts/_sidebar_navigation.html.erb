@@ -36,27 +36,7 @@
 				</form-->
 				<!-- END RESPONSIVE QUICK SEARCH FORM -->
 			<!--/li-->
-			<li class="start">
-				<%= link_to raw('<i class="icon-home"></i><span class="title"> Dashboard</span>'), admin_dashboards_url %>
-				<!--ul class="sub-menu">
-					<li class="active">
-						<a href="index.html">
-						<i class="icon-bar-chart"></i>
-						Default Dashboard</a>
-					</li>
-					<li>
-						<a href="index_2.html">
-						<i class="icon-bulb"></i>
-						New Dashboard #1</a>
-					</li>
-					<li>
-						<a href="index_3.html">
-						<i class="icon-graph"></i>
-						New Dashboard #2</a>
-					</li>
-				</ul-->
-			</li>
-			<li class="heading">
+			<li class="start heading">
 				<h3 class="uppercase">Features</h3>
 			</li>
 			<%= li_active_open?('contents') %>
@@ -70,23 +50,23 @@
 					<%= li_active?('banners') %>
 						<%= link_to raw('<i class="icon-flag"></i> Banners'), admin_contents_banners_url %>
 					</li>
-					<!--
+					<%= li_active?('videos') %>
+						<%= link_to raw('<i class="icon-social-youtube"></i> Videos'), admin_contents_videos_url %>
+					</li>
 					<%= li_active?('news') %>
 						<%= link_to raw('<i class="icon-feed"></i> News'), admin_contents_news_index_url %>
 					</li>
 					<%= li_active?('events') %>
 						<%= link_to raw('<i class="icon-calendar"></i> Events'), admin_contents_events_url %>
 					</li>
+					<%= li_active?('stories') %>
+						<%= link_to raw('<i class="icon-picture"></i> Stories'), admin_contents_stories_url %>
+					</li>
+					<!--
 					<%= li_active?('galleries') %>
 						<%= link_to raw('<i class="icon-picture"></i> Galleries'), admin_contents_galleries_url %>
 					</li>
 					-->
-					<%= li_active?('comics') %>
-						<%= link_to raw('<i class="icon-rocket"></i> Comics'), admin_contents_comics_url %>
-					</li>
-					<%= li_active?('categories') %>
-						<%= link_to raw('<i class="icon-link"></i> Categories'), admin_contents_categories_url %>
-					</li>
 				</ul>
 			</li>
 			<%= li_active_open?('store') %>
@@ -110,25 +90,6 @@
 						<%= link_to raw('<i class="icon-link"></i> Collections'), admin_store_collections_url %>
 					</li>
 				</ul>
-			</li>
-			<%= li_active_open?('mailings') %>
-				<a href="javascript:;">
-				<i class="icon-envelope"></i>
-				<span class="title">Mailing Lists</span>
-				<%= span_selected('mailings') %>
-        <span class="arrow<%= is_open?('mailings') %>"></span>
-				</a>
-				<ul class="sub-menu">
-					<%= li_active?('campaigns') %>
-						<%= link_to raw('<i class="icon-envelope-letter"></i> Campaigns'), admin_mailings_campaigns_url %>
-					</li>
-					<%= li_active?('lists') %>
-						<%= link_to raw('<i class="icon-users"></i> List'), admin_mailings_lists_url %>
-					</li>
-				</ul>
-			</li>
-			<%= li_active_open?('tags') %>
-				<%= link_to raw('<i class="icon-tag"></i><span class="title"> Tags</span>'), admin_tags_url %>
 			</li>
 			<li class="heading">
 				<h3 class="uppercase">Administration</h3>

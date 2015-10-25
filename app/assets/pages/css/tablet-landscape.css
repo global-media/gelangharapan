@@ -1,0 +1,164 @@
+@media only screen 
+and (min-device-width : 768px) 
+and (max-device-width : 1024px) 
+and (orientation : landscape){
+
+.pic__1 .fa {
+    color: white;
+    position: absolute;
+    top: 52%;
+    margin-left: -6.5%!important;
+    font-size: 57px;
+}
+.h3, h3 {
+    font-size: 17px!important;
+}
+
+.home__content--4 h4:first-child {
+      margin: 5% 0px 5% 0px!important;
+}
+
+.home__content--4 h3 {
+    text-transform: uppercase;
+    font-family: tipis;
+    letter-spacing: 4px;
+    margin: 3% 0px 3% 0px!important;
+}
+.home__content--4 h4 {
+       margin: 4% 0px 4% 0px!important;
+
+}
+.navbar-nav>li {
+    float: left;
+     margin-left: 0px!Important
+}
+.nav>li>a {
+    position: relative;
+    display: block;
+    padding: 14px 10px 0px 4px!Important
+}
+
+.home__content--2 img {
+    width: 65%;
+    margin: -41px 0px 40px 0px!important;
+}
+
+#about {
+    background: url('/assets/img/home-3.jpg')no-repeat;
+    width: 100%;
+    height: 493px!important;
+    background-size: 100%!important;
+}
+.people__content--1 p {
+    margin: 0% 17% -22% 17%!important;
+}
+.health__content--1 p {
+    margin: 0% 12% 0px 12%!important;
+}
+p {
+    font-family: standart;
+   font-size: 14px!important;
+    letter-spacing: 0px!important;
+}
+.home__content--6 {
+    background: url('/assets/img/home-5.jpg')no-repeat;
+    width: 100%;
+    height: 427px!important;
+
+    background-size: 119%!important;
+    background-position: -81px 0px!important;
+}
+.footer {
+    background: url('/assets/img/footer.png')no-repeat;
+    width: 100%;
+    height: 258px!important;
+    background-size: 100%!important;
+    position: absolute;
+    bottom: 0;
+}
+.journey__content--2 li {
+    display: inline-block;
+    margin: 5% 0% 6% 0%!important;
+    float: left;
+	    width: 25%;
+}
+.journey__content--2 li img{
+	width:80%
+}
+
+.people__content--1 .cover {
+    background: url('/assets/img/people/people.jpg')no-repeat;
+    width: 100%;
+    height: 1631px!important;
+    background-size: 100%;
+}
+
+.people__content--2	h3 {
+    margin: 8% 0px 5% 0px;
+    font-size: 14px!important;
+}
+
+.story__content--1 .cover {
+    background: url('/assets/img/Story/story-2.jpg')no-repeat;
+    width: 100%;
+    height: 431px!important;
+    background-size: 100%;
+    background-position: 0px -156px;
+}
+
+.story__content--2 .balon {
+    background: url('/assets/img/Story/balon.png')no-repeat;
+    width: 318px;
+    height: 322px!important;
+    background-size: 74%!important;
+    background-position: 65px 2px!important;
+}
+
+.story__content--3 {
+    background: url('/assets/img/Story/story-3.jpg')no-repeat;
+    width: 100%;
+    height: 1071px!important;
+    background-size: 100%;
+    margin: 0px 0px -67px 0px;
+}
+
+.bahasa img {
+    float: left;
+    width: 16%!important;
+    margin: 12px 19px 0px 0px;
+}
+
+.menu__atas li a {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+    padding:0px!important;
+    font-family: tebel;
+    font-style: normal;
+    font-size: 16px!important;
+    /* margin: 0px 0px 0px 0px; */
+}
+.home__content--4 img {
+    width: 105%!important;
+}
+.mobile__login{    margin: 0px -60px 0px 0px!important;}
+
+#googleMap{
+	height: 394px!important;
+    position: relative;
+    overflow: hidden;
+    transform: translateZ(0px);
+    background-color: rgb(229, 227, 223);
+    width: 100%;
+}
+
+.contact__content--1 .corak {
+    background: url('/assets/img/corak.png')no-repeat;
+    width: 100%;
+    height: 106px;
+    background-size: 100%;
+    position: relative;
+    top: -78px!important;
+    margin: 0px 0px -64px 0px;
+}
+}

@@ -6,7 +6,7 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
-module Projektwebsite
+module Hope
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
@@ -27,8 +27,9 @@ module Projektwebsite
     
     config.active_record.raise_in_transactional_callbacks = true
     
-	  config.autoload_paths << Rails.root.join('lib')
+    config.autoload_paths << Rails.root.join('lib')
 
-    # config.assets.paths << Rails.root.join("app", "assets", "admin")
+    config.assets.paths << Rails.root.join("app", "assets", "admin")
+    config.assets.paths << Rails.root.join("app", "assets", "pages")
   end
 end

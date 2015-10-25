@@ -1,21 +1,73 @@
-<!DOCTYPE html><!-- HTML -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
 
-<!--[if IE 8]> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="ie8 no-js"> <![endif]-->
-<!--[if IE 9]> <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="ie9 no-js"> <![endif]-->
-<!--[if !IE]><!-->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<!--<![endif]-->
+    <title>Hope</title>
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 320px) and (max-width: 480px)" href="/assets/css/mobile.css">
+	<link rel="stylesheet" type="text/css" media="screen and (min-width: 768px) and (max-width:  1024px) and (orientation : landscape)" href="/assets/css/tablet-landscape.css">
+		<link rel="stylesheet" type="text/css" media="screen and (min-width: 768px) and (max-width: 1024px) and (orientation : portrait)" href="/assets/css/tablet-portrait.css">
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/css/hope.css" rel="stylesheet">
+	    <link href="/assets/css/font-awesome.css" rel="stylesheet">
+
+  </head>
+
+  <body>
   
-  <%= render partial: 'layouts/frontend_header' %>
-	
-<body>
-
-  <%= render partial: 'layouts/frontend_navigation' %>
-
   <%= yield %>
   
-  <%= render partial: 'layouts/frontend_footer' %>
+  <footer class="footer"></footer>
+
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="/assets/js/bootstrap.min.js"></script>
+
+	<script src="http://maps.googleapis.com/maps/api/js"></script>
+  <script>
+  function initialize() {
+    var mapProp = {
+      center:new google.maps.LatLng(-6.2928772,106.78891,17.33),
+      zoom:17,
+      mapTypeId:google.maps.MapTypeId.ROADMAP
+    };
+    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+  $(document).ready(function(){	
+    $('.modal-footer').css({
+        "background-color": "white",
+        "padding": "6%"
+      });
+
+
+      $(".artis").click(function(){
+          $("#myModal").modal('show');
+  		var src = $(this).find(".video-link1").attr('src');
+
+  		$('.video-link').attr( 'src', src )
+  		$('#myModal').modal('show'); 
+  		$('video').load(); 
+
+  		return false;
+      });
+
+       $(".close-video").click(function(){
+
+  $(".video-artist")[0].pause();
+  	 });
+  });
   
-</body>
-<!-- END BODY -->
+  </script>
+
+  </body>
 </html>

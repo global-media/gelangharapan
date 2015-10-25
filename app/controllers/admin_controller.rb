@@ -3,7 +3,7 @@ class AdminController < ApplicationController
   
   def show
     if logged_in?
-      redirect_to admin_dashboards_url
+      redirect_to admin_contents_banners_url
     else
       redirect_to action_admin_url(action: 'login')
     end

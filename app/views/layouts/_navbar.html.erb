@@ -1,0 +1,24 @@
+
+<% unless params[:action] == 'index' %><center><%= link_to raw('<img class="main-logo" src="/assets/img/logo.png">'), pages_index_url(lang: (params[:lang] || 'id')) %></center><% end %>
+
+<nav class="navbar navbar-inverse">
+	<div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			<span class="sr-only">Toggle navigation</span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+		</button>
+	</div>
+	<div id="navbar" class="collapse navbar-collapse">
+		<ul class="nav navbar-nav">
+			<li><%= link_to 'Journey of Hope', pages_journey_url(lang: (params[:lang] || 'id')) %></li>
+			<li><%= link_to 'People behind Hope', pages_people_url(lang: (params[:lang] || 'id')) %></li>
+			<li><%= link_to 'Hope Health News', pages_news_url(lang: (params[:lang] || 'id')) %></li>
+			<li><%= link_to 'Upcoming Events', pages_events_url(lang: (params[:lang] || 'id')) %></li>
+			<li><%= link_to 'Bracelet of Hope', pages_bracelet_url(lang: (params[:lang] || 'id')) %></li>
+			<li><%= link_to 'Story of Hope', pages_story_url(lang: (params[:lang] || 'id')) %></li>
+			<li><%= link_to 'Contact Us', pages_contact_url(lang: (params[:lang] || 'id')) %></li>
+		</ul>  	
+	</div>
+</nav>
