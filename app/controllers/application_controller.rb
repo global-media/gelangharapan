@@ -3,8 +3,8 @@ class ApplicationController < ActionController::Base
 
   SITE_URL = '/'.freeze
   SITE_NAME = 'Hope'.freeze
-  SITE_ICON = 'assets/img/logo.png'.freeze
-  SITE_LOGO = 'assets/img/logo.png'.freeze
+  SITE_ICON = 'pages/img/logo.png'.freeze
+  SITE_LOGO = 'pages/img/logo.png'.freeze
   
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.

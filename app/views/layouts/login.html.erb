@@ -24,7 +24,7 @@
 <link href="/global/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css"/>
 <!-- END GLOBAL MANDATORY STYLES -->
 <!-- BEGIN PAGE LEVEL STYLES -->
-<%= stylesheet_link_tag 'css/login.css', 'layout/css/layout.css', 'layout/css/themes/darkblue.css', 'layout/css/custom.css' %>
+<%= stylesheet_link_tag 'pages/css/login.css', 'pages/layout/css/layout.css', 'layout/css/themes/darkblue.css', 'layout/css/custom.css' %>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <!-- BEGIN THEME STYLES -->
@@ -43,7 +43,7 @@
 <!-- BEGIN LOGO -->
 <div class="logo">
 	<a href="index.html">
-	<img src="/<%= ApplicationController::SITE_LOGO %>" alt=""/>
+	<img src="<%= asset_path ApplicationController::SITE_LOGO %>" alt=""/>
 	</a>
 </div>
 <!-- END LOGO -->
@@ -72,7 +72,7 @@
 <!-- END PAGE LEVEL PLUGINS -->
 <!-- BEGIN PAGE LEVEL SCRIPTS -->
 <script src="/global/scripts/metronic.js" type="text/javascript"></script>
-<%= javascript_include_tag "layout/scripts/layout.js", "layout/scripts/demo.js", "scripts/login.js" %>
+<%= javascript_include_tag "layout/scripts/layout.js", "layout/scripts/demo.js", "pages/scripts/login.js" %>
 
 <!-- END PAGE LEVEL SCRIPTS -->
 <script>
