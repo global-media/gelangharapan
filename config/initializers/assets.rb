@@ -25,4 +25,4 @@ Rails.application.config.assets.precompile += %w( fonts/glyphicons-halflings-reg
 Rails.application.config.assets.precompile += %w( fonts/fontawesome-webfont.eot fonts/fontawesome-webfont.eot fonts/fontawesome-webfont.woff2 fonts/fontawesome-webfont.woff fonts/fontawesome-webfont.ttf fonts/fontawesome-webfont.svg )
 Rails.application.config.assets.precompile += %w( fonts/lg.eot fonts/lg.woff fonts/lg.ttf fonts/lg.svg )
 Rails.application.config.assets.precompile += %w( img/people/flower.png img/people/matahari.png )
-Rails.application.config.assets.precompile += %w( pages/css/EBGaramond12-Italic.ttf pages/css/EBGaramond12-Regular.ttf pages/css/Moon-Bold.otf pages/css/Moon-Light.otf )
+Rails.application.config.assets.precompile += %w( css/EBGaramond12-Italic.ttf css/EBGaramond12-Regular.ttf css/Moon-Bold.otf css/Moon-Light.otf )
