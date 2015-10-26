@@ -68,7 +68,40 @@
   });
   
   </script>
+
+  <% elsif params[:action] == 'story' %>
+
+  <script>
+  $(document).ready(function(){	
+
+  $('.modal-footer').css({
+        "background-color": "white",
+        "padding": "6%"
+      });
+
+
+      $(".artis").click(function(){
+          $("#myModal").modal('show');
+  		var src = $(this).find(".video-link1").attr('src');
+
+  		$('.video-link').attr( 'src', src )
+  		$('#myModal').modal('show'); 
+  		$('video').load(); 
+
+  		return false;
+      });
+
+       $(".close-video").click(function(){
+
+  $(".video-artist")[0].pause();
+  	 });
+
+  });
+  </script>
+  
   <% end %>
+  
+  
 
   </body>
 </html>
