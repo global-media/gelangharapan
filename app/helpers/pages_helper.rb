@@ -18,7 +18,9 @@ module PagesHelper
   end
 
   def people_header
-    str = '<center><img class="flower img-responsive" src="/assets/img/people/flower.png">'
+    str = '<center><img class="flower img-responsive" src="'
+    str << asset_path('img/people/flower.png')
+    str << '">'
     str << "<h3><i>People Behind</i><b>HOPE</b></h3><p>"
     
     str << if english?
@@ -64,7 +66,9 @@ module PagesHelper
   end
   
   def news_header
-    str = '<center><img class="matahari img-responsive" src="/assets/img/health/matahari.png">'
+    str = '<center><img class="matahari img-responsive" src="'
+    str << asset_path('img/people/matahari.png')
+    str << '">'
     str << '<h3><i>Hope Health</i> <b>NEWS</b></h3><p>'
     str << if english?
             "Bracelet of Hope movement working together with RSCM..."
