@@ -1,5 +1,5 @@
 
-<% unless params[:action] == 'index' %><center><%= link_to raw('<img class="main-logo" src="/assets/img/logo.png">'), pages_index_url(lang: (params[:lang] || 'id')) %></center><% end %>
+<% unless params[:action] == 'index' %><center><%= link_to raw(image_tag('img/logo.png', class: 'main-logo')), pages_index_url(lang: (params[:lang] || 'id')) %></center><% end %>
 
 <nav class="navbar navbar-inverse">
 	<div class="navbar-header">

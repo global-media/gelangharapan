@@ -1,7 +1,7 @@
 <!-- BEGIN HEAD -->
 <head>
 <meta charset="utf-8"/>
-<title><%= ApplicationController::SITE_NAME %> - BACA KOMIK BAGUS KAPAN SAJA, DI MANA SAJA</title>
+<title><%= ApplicationController::SITE_NAME %></title>
 <meta http-equiv="Content-Style-Type" content="text/css" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
@@ -10,29 +10,20 @@
 
 <link rel="shortcut icon" href="<%= ApplicationController::SITE_ICON %>" type="image/x-icon" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="keywords" content="kosmik, komik, comic, digital comic, komik digital, indonesia, komik digital indonesia" />
-<meta name="description" content="BACA KOMIK BAGUS KAPAN SAJA, DI MANA SAJA" />
+<meta name="keywords" content="" />
+<meta name="description" content="" />
 
 <!-- CSS -->
-<link href="/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
 <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600' rel='stylesheet' type='text/css'>
 <link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,700,300' rel='stylesheet' type='text/css'>
-<link href="/assets/icon/font-awesome.css" rel="stylesheet" type="text/css" />
-<link href="/assets/icon/ionicons.css" rel="stylesheet" type="text/css" />
-<link href="/assets/css/style.css" rel="stylesheet" type="text/css" />
-<link href="/assets/fonts/font.css" rel="stylesheet" type="text/css" />
+
+<%= stylesheet_link_tag 'css/bootstrap.css', 'icon/font-awesome.css', 'icon/ionicons.css', 'css/style.css', 'fonts/font.css', 'vendor/royalslider.css', 'vendor/skins/default/rs-default.css' %>
 
 <!-- JavaScripts-->
-<script type="text/javascript" src="/assets/vendor/jquery-1.9.1.min.js"></script>
-<script type="text/javascript" src="/assets/vendor/bootstrap.min.js"></script>
-<script type="text/javascript" src="/assets/vendor/parallax.min.js"></script>
-<script type="text/javascript" src="/assets/js/kosmik.js"></script>
-		
-<!-- royalslider-->
-<script src="/assets/vendor/jquery.royalslider.min.js" type="text/javascript"></script>
-<link href="/assets/vendor/royalslider.css" rel="stylesheet" type="text/css"/>
-<link href="/assets/vendor/skins/default/rs-default.css" rel="stylesheet" type="text/css" />
+<%= javascript_include_tag "vendor/jquery-1.9.1.min.js", "vendor/bootstrap.min.js", "vendor/parallax.min.js", "vendor/jquery.royalslider.min.js" %>
 
+
+<%= javascript_include_tag "application" %>
 <%= csrf_meta_tags %>
 
 </head>

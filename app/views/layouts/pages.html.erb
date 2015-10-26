@@ -10,13 +10,9 @@
     <link rel="icon" href="../../favicon.ico">
 
     <title>Hope</title>
-	<link rel="stylesheet" type="text/css" media="screen and (min-width: 320px) and (max-width: 480px)" href="/assets/css/mobile.css">
-	<link rel="stylesheet" type="text/css" media="screen and (min-width: 768px) and (max-width:  1024px) and (orientation : landscape)" href="/assets/css/tablet-landscape.css">
-		<link rel="stylesheet" type="text/css" media="screen and (min-width: 768px) and (max-width: 1024px) and (orientation : portrait)" href="/assets/css/tablet-portrait.css">
-    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/assets/css/hope.css" rel="stylesheet">
-	    <link href="/assets/css/font-awesome.css" rel="stylesheet">
-
+    
+    <%= stylesheet_link_tag 'css/mobile.css', 'css/tablet-landscape.css', 'css/tablet-portrait.css', 'css/bootstrap.min.css', 'css/hope.css', 'css/font-awesome.css' %>
+    
   </head>
 
   <body>
@@ -29,8 +25,8 @@
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <script src="/assets/js/bootstrap.min.js"></script>
-
+  <%= javascript_include_tag "js/bootstrap.min.js" %>
+  
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
   <script>
   function initialize() {

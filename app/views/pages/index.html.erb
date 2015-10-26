@@ -8,7 +8,7 @@
 	
     <%= render partial: 'layouts/navbar' %>
 
-		<center><img class="putih img-responsive"  src="/assets/img/putih.png"><i data-toggle="modal" data-target="#myModal" class="fa fa-play"></i>
+		<center><%= image_tag('img/putih.png', class: 'putih img-responsive') %><i data-toggle="modal" data-target="#myModal" class="fa fa-play"></i>
 	<div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog modal-md">
       <div class="modal-content">
@@ -27,7 +27,7 @@
 	
 	<section class="home__content--2">
 		<center>
-			<img src="/assets/img/home-2.jpg">
+		  <%= image_tag('img/home-2.jpg') %>
 		</center>
 	</section>
 	
@@ -39,7 +39,7 @@
 	
 	<section class="home__content--4" id="people__behind">
 		<div class="col-md-6 col-sm-6" style="padding-left:0px">
-			<img src="/assets/img/home-4.jpg">
+		  <%= image_tag('img/home-4.jpg') %>
 		</div>
 		<div class="col-md-6 col-sm-6">
 			<center>
@@ -72,8 +72,8 @@
 	</section>
 	
 	<section class="home__content--7">
-		<div class="col-md-6 col-xs-6 col-sm-6 upcoming__event"><a href="upcoming.html"><img class="img-responsive" src="/assets/img/Upcoming-Event/event-1.jpg"><h3><i>Upcoming</i><b> Event</b></h3></a></div>
-		<div class="col-md-6 col-xs-6 col-sm-6 story__ofhope"><a href="story.html"><img class="img-responsive" src="/assets/img/Story/story-1.jpg"><h3><i>Story Of</i><b> HOPE</b></h3></a></div>
+		<div class="col-md-6 col-xs-6 col-sm-6 upcoming__event"><a href="upcoming.html"><%= image_tag('img/Upcoming-Event/event-1.jpg', class: 'img-responsive') %><h3><i>Upcoming</i><b> Event</b></h3></a></div>
+		<div class="col-md-6 col-xs-6 col-sm-6 story__ofhope"><a href="story.html"><%= image_tag('img/Story/story-1.jpg', class: 'img-responsive') %><h3><i>Story Of</i><b> HOPE</b></h3></a></div>
 	</section>
 	
 	<section class="home__content--8" id="social__media">
