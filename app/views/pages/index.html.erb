@@ -58,13 +58,13 @@
 	
 	<section  class="home__content--5">
 		<div class="col-md-4 col-xs-4 col-sm-4">
-			<h3><a href="bracelet.html"><i>Barcelete of</i><br><b>HOPE</b></a></h3>
+		  <h3><%= link_to raw('<i>Barcelete of</i><br><b>HOPE</b>'), pages_bracelet_url %></h3>
 		</div>
 		<div class="col-md-4 col-xs-4 col-sm-4">
-			<h3><a href="journey.html"><i>Journey of</i><br><b>HOPE</b></a></h3>
+		  <h3><%= link_to raw('<i>Journey of</i><br><b>HOPE</b>'), pages_journey_url %></h3>
 		</div>
 		<div class="col-md-4 col-xs-4 col-sm-4">
-			<h3><a href="health.html"><b>HOPE</b> <i>Health News</i></a></h3>
+		  <h3><%= link_to raw('<b>HOPE</b> <i>Health News</i>'), pages_news_url %></h3>
 		</div>
 	</section>
 	
@@ -72,8 +72,12 @@
 	</section>
 	
 	<section class="home__content--7">
-		<div class="col-md-6 col-xs-6 col-sm-6 upcoming__event"><a href="upcoming.html"><%= image_tag('img/Upcoming-Event/event-1.jpg', class: 'img-responsive') %><h3><i>Upcoming</i><b> Event</b></h3></a></div>
-		<div class="col-md-6 col-xs-6 col-sm-6 story__ofhope"><a href="story.html"><%= image_tag('img/Story/story-1.jpg', class: 'img-responsive') %><h3><i>Story Of</i><b> HOPE</b></h3></a></div>
+		<div class="col-md-6 col-xs-6 col-sm-6 upcoming__event">
+		  <%= link_to (raw(image_tag('img/Upcoming-Event/event-1.jpg', class: 'img-responsive')) + raw('<h3><i>Upcoming</i><b> Event</b></h3>')), pages_events_url %>
+		</div>
+		<div class="col-md-6 col-xs-6 col-sm-6 story__ofhope">
+		  <%= link_to (raw(image_tag('img/Story/story-1.jpg', class: 'img-responsive')) + raw('<h3><i>Story Of</i><b> HOPE</b></h3>')), pages_story_url %>
+		</div>
 	</section>
 	
 	<section class="home__content--8" id="social__media">
