@@ -2,11 +2,11 @@
 	<div class="col-md-12 col-sm-12 col-xs-12">
     <div class="bahasa pull-right col-md-4 col-xs-12 col-sm-5 mobile__login">
       <ul>
-    	<li><%= link_to raw(image_tag('img/eng.jpg', class: 'img-responsive')), url_for(params.merge(lang: 'en')) %></li>
-    	<li><%= link_to raw(image_tag('img/ind.jpg', class: 'img-responsive')), url_for(params.merge(lang: 'id')) %></li>
+    	<%= link_to raw(image_tag('img/eng.jpg', class: 'img-responsive', alt: '')), url_for(params.merge(lang: 'en')) %>
+    	<%= link_to raw(image_tag('img/ind.jpg', class: 'img-responsive', alt: '')), url_for(params.merge(lang: 'id')) %>
 	    <li><%= link_to 'Sign In', authenticate_login_url %></li>
     	<li><%= link_to 'Register', authenticate_register_url %></li>
-    	</ul>
+      </ul>
     	<!--i class="fa fa-shopping-cart"></i-->
   	</div>
 	</div>
