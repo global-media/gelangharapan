@@ -10,7 +10,7 @@ class ImagesController < ApplicationController
     @image = Image.new({image: params[:image], content_id: content_id, content_type: content_type})
     if @image.save
       render :json => { :files => [{
-                                    "image_id" => @image.id
+                                    "image_id" => @image.id,
                                     "name" => @image.image_file_name,
                                     "size" => @image.image_file_size,
                                     "url" => @image.image.url,
