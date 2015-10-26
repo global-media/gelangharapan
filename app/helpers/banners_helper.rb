@@ -17,7 +17,7 @@ module BannersHelper
     def indicator_str(num)
       indicator_str = '<ol class="carousel-indicators">'
       0.upto(num-1).each do |i|
-        indicator_str << '<li data-target="#myCarousel" data-slide-to="'
+        indicator_str << '<li data-target="#myCarousel1" data-slide-to="'
         indicator_str << i.to_s
         indicator_str << '"'
         indicator_str << ' class="active"' if i == 0
@@ -43,11 +43,11 @@ module BannersHelper
     def control_str
       <<-STR
     		<!-- Controls -->
-    		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    		<a class="left carousel-control" href="#myCarousel1" role="button" data-slide="prev">
     			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
     			<span class="sr-only">Previous</span>
     		</a>
-    		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    		<a class="right carousel-control" href="#myCarousel1" role="button" data-slide="next">
     			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
     			<span class="sr-only">Next</span>
     		</a>

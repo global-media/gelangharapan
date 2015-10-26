@@ -116,7 +116,7 @@ module PagesHelper
   end
   
   def bracelet_header
-    str = '<center><h3><i>Bracelets of </i><b>HOPE</b></h3><p>'
+    str = '<center><h3><i>Bracelet of </i><b>HOPE</b></h3><p>'
     str << if english?
             "All sale will go towards Cancer Assocation..."
           else
