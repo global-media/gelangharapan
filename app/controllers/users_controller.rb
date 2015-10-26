@@ -1,6 +1,9 @@
 class UsersController < ApplicationController
   layout 'admin'
   
+  before_filter :admin_authorize
+  before_filter :validate_admin_permission
+    
   def index
     @users = User.all
   end
@@ -51,5 +54,5 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit!
     end
-  
+
 end

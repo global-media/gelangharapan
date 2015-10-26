@@ -19,5 +19,5 @@ Rails.application.config.assets.precompile += %w( pages/scripts/components-picke
 Rails.application.config.assets.precompile += %w( pages/scripts/todo.js layout/scripts/quick-sidebar.js pages/scripts/inbox.js pages/scripts/lock.js pages/scripts/profile.js pages/scripts/form-fileupload.js )
 Rails.application.config.assets.precompile += %w( pages/css/bootstrap.css pages/icon/font-awesome.css pages/icon/ionicons.css css/style.css pages/fonts/font.css pages/vendor/royalslider.css pages/vendor/skins/default/rs-default.css )
 Rails.application.config.assets.precompile += %w( pages/vendor/jquery-1.9.1.min.js pages/vendor/bootstrap.min.js pages/vendor/parallax.min.js pages/vendor/jquery.royalslider.min.js )
-Rails.application.config.assets.precompile += %w( pages/css/mobile.css pages/css/tablet-landscape.css pages/css/tablet-portrait.css pages/css/bootstrap.min.css pages/css/hope.css pages/css/font-awesome.css )
-Rails.application.config.assets.precompile += %w( pages/js/bootstrap.min.js )
+Rails.application.config.assets.precompile += %w( css/mobile.css css/tablet-landscape.css css/tablet-portrait.css css/bootstrap.min.css css/hope.css css/font-awesome.css )
+Rails.application.config.assets.precompile += %w( js/bootstrap.min.js )

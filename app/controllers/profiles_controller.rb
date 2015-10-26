@@ -1,6 +1,9 @@
 class ProfilesController < ApplicationController
   layout 'admin'
 
+  before_filter :admin_authorize
+  before_filter :validate_admin_permission
+
   def show
     @user = User.find(session[:user]['id'])
     render action: 'show'

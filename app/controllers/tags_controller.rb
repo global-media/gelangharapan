@@ -1,6 +1,9 @@
 class TagsController < ApplicationController
   layout 'admin'
 
+  before_filter :admin_authorize
+  before_filter :validate_admin_permission
+
   def index
     @tags = Tag.all.order(:sort)
   end

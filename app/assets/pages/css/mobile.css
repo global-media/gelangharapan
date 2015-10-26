@@ -9,7 +9,7 @@ text-rendering: optimizeLegibility !important;
 
 h2{font-size:25px!important;}
 h3{font-size:21px!important;}
-p{font-size:13px!important;}
+p{font-size:14px!important;}
 #about p {
     font-size: 13px!important;
 }
@@ -35,7 +35,7 @@ p{font-size:13px!important;}
 }
 .bahasa img {
     float: left;
-    width: 37%!important;
+      width: 12%!important;
     margin: 3px 7px 0px 0px!important;
 }
 .navbar-inverse {
@@ -67,7 +67,10 @@ background:transparent!important;
     border: 1px solid transparent;
     right: 0px;
 }
+.mobile__login {
 
+    padding: 0px!important;
+}
 .navbar-inverse .navbar-toggle {
 border-color: transparent!important;}
 .navbar-inverse .navbar-toggle .icon-bar {
@@ -81,10 +84,9 @@ border-color: transparent!important;}
     text-align: center;
 }
  .menu__atas .fa {
-    font-size: 20px;
-    position: relative;
-    top: 0px!important;
-    left: 15px;
+      position: absolute!important;
+    top: 9px!important;
+    right: -1px!important;
     color: black!important;
 }
 .mobile__login{

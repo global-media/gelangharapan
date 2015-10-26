@@ -1,5 +1,8 @@
 class CategoriesController < ApplicationController
   layout 'admin'
+
+  before_filter :admin_authorize
+  before_filter :validate_admin_permission
   
   def index
     @categories = Category.all.order(:sort)
@@ -41,7 +44,7 @@ class CategoriesController < ApplicationController
   end
   
   def sort
-    Category.sort!(params[:category][:sort])
+    Category.sort!(params[:category][:sort]) if params[:category]
     flash[:success] = 'Category Sort success!'
     redirect_to admin_contents_categories_url
   end

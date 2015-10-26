@@ -2,16 +2,19 @@ class ImagesController < ApplicationController
   include Sort
   
   layout 'admin'
+
+  before_filter :admin_authorize
+  before_filter :validate_admin_permission
   
   def create    
     @image = Image.new({image: params[:image], content_id: content_id, content_type: content_type})
     if @image.save
       render :json => { :files => [{
-                                    "image_id" => @image.id,
+                                    "image_id" => @image.id
                                     "name" => @image.image_file_name,
                                     "size" => @image.image_file_size,
-                                    "sort" => @image.sort,
                                     "url" => @image.image.url,
+                                    "sort" => @image.sort,
                                     "thumbnail_url" => @image.image.url(:thumb),
                                     "delete_url" => delete_url,
                                     "delete_type" => @image.image_content_type
@@ -39,12 +42,10 @@ class ImagesController < ApplicationController
         'news'
       elsif params[:event_id]
         'events'
-      elsif params[:product_id]
-        'products'
-      elsif params[:episode_id]
-        'episodes'
       elsif params[:gallery_id]
         'galleries'
+      elsif params[:story_id]
+        'stories'
       end
     end
     
@@ -52,9 +53,8 @@ class ImagesController < ApplicationController
       case parent_controller
       when 'news';      params[:news_id]
       when 'events';    params[:event_id]
-      when 'products';  params[:product_id]
-      when 'episodes';  params[:episode_id]
       when 'galleries'; params[:gallery_id]
+      when 'stories';  params[:story_id]
       end      
     end
     
@@ -62,9 +62,8 @@ class ImagesController < ApplicationController
       case parent_controller
       when 'news';      'News'
       when 'events';    'Event'
-      when 'products';  'Product'
-      when 'episodes';  'Episode'
       when 'galleries'; 'Gallery'
+      when 'stories';  'Story'
       end
     end
         
@@ -72,23 +71,17 @@ class ImagesController < ApplicationController
       case parent_controller
       when 'news';      admin_contents_news_image_url(id: @image.id)
       when 'events';    admin_contents_event_image_url(id: @image.id)
-      when 'products';  admin_store_product_image_url(id: @image.id)
-      when 'episodes';  admin_contents_comic_episode_image_url(id: @image.id)
       when 'galleries'; admin_contents_gallery_image_url(id: @image.id)
+      when 'stories';  admin_contents_story_image_url(id: @image.id)
       end
     end
     
     def redirect_url
       case parent_controller
-      when 'news';      edit_admin_contents_news_url(id: content_id, anchor: "images")
-      when 'events';    edit_admin_contents_event_url(id: content_id, anchor: "images")
-      when 'products';  edit_admin_store_product_url(id: content_id, anchor: "images")
-      when 'episodes';  edit_admin_contents_comic_episode_url(id: content_id, anchor: "images")
-      when 'galleries';  edit_admin_contents_gallery_url(id: content_id, anchor: "images")
+      when 'news';      edit_admin_contents_news_url(id: content_id, anchor: 'images')
+      when 'events';    edit_admin_contents_event_url(id: content_id, anchor: 'images')
+      when 'galleries'; edit_admin_contents_gallery_url(id: content_id, anchor: 'images')
+      when 'stories';  edit_admin_contents_story_url(id: content_id, anchor: 'images')
       end
-    end
-    
-    def episode_params
-      params.require(:episode).permit!
     end
 end

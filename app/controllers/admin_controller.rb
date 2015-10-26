@@ -2,8 +2,8 @@ class AdminController < ApplicationController
   layout 'login'
   
   def show
-    if logged_in?
-      redirect_to admin_contents_banners_url
+    if admin_logged_in?
+      redirect_to admin_dashboards_url
     else
       redirect_to action_admin_url(action: 'login')
     end
@@ -21,7 +21,7 @@ class AdminController < ApplicationController
       flash[:success] = 'Login success!'
       redirect_to admin_url and return
     end
-    flash[:error] = "We're sorry but we cannot sign up at the moment"
+    flash[:error] = "We're sorry but we cannot sign you up at the moment"
     redirect_to action_admin_url(action: 'registration') and return
   end
   

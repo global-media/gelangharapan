@@ -1,5 +1,8 @@
 class NewsController < ApplicationController
   layout 'admin'
+
+  before_filter :admin_authorize
+  before_filter :validate_admin_permission
   
   def index
     @news_items = News.all.order(:sort)

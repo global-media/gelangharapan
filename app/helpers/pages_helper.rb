@@ -9,7 +9,7 @@ module PagesHelper
               and suicide. TWLOHA exists to encourage, inform, inspire, and also to
               invest directly into treatment and recovery."
           else
-            "Untuk Menulis ..."
+            "Journey of Hope atau \"Perjalanan Harapan\" adalah segala bentuk aktivasi gerakkan Gelang Harapan dalam menebarkan harapan. Journey of Hope dapat berbentuk aktivasi menyumbang langsung, aktivasi penggalangan dana dan semua bentuk \"Care Entertainment\" yang dilakukan para Founders dan Warriors of Hope, yaitu Gerakkan Peduli Entertainment, termasuk Concert of Hope dan Movie \"I AM HOPE\" maupun segala kegiatan yang semuanya bertujuan akhir untuk membantu pasien kanker yang tidak mampu dan keluarganya di seluruh Indonesia. Gerakkan Gelang Haparan percaya, bahwa di dalam setiap situasi dalam kehidupan, selalu ada Harapan. Di dalam tiap Journey of Hope, gerakkan gelang harapan mengharapkan uluran tangan dari semua Warrior of Hope untuk bersama-sama mendata pasien kanker, membantu mereka dan terus menebarkan Harapan. \n Dan inilah perjalanan-perjalanan kami"
           end
 
     str << "</p></center>"
@@ -88,18 +88,29 @@ module PagesHelper
     str << '</p></center>'
     
     str << '<div class="row event__list">'
+    str << '<div id="myCarousel" class="carousel slide" data-ride="carousel">'
     
-    Event.active.order(:sort).each do |event|
-      str << '<div class="col-md-6 col-sm-6">'
-      str << image_tag(event.image.url, {class: 'img-responsive'})
-      str << '</div>'
-    end
-
-		str << '</div>'
+    str << event_items
+    str << control_str
+    
+		str << '</div></div>'
 		
 		raw(str)
 	end
 	
+  def event_items
+    str = '<div class="carousel-inner" role="listbox">'
+    Event.active.order(:sort).each_with_index do |event, index|
+      str << '<div class="item'
+      str << ' active' if index == 0
+      str << '">'
+      str << image_tag(event.image.url, {class: "img-responsive"})
+      str << '</div>'
+    end
+    str << '</div>'
+    str
+  end
+  
   def bracelet_header
     str = '<center><h3><i>Bracelets of </i><b>HOPE</b></h3><p>'
     str << if english?
@@ -181,9 +192,9 @@ module PagesHelper
     bracelets.each do |bracelet|
       str << '<div class="col-md-4  col-xs-12 col-sm-4">'
       str << image_tag(bracelet[:image_path], {class: "img-responsive"})
-      str << '<h4><i>'
-      str << bracelet[:name]
-      str << '</i></h4>'
+      # str << '<h4><i>'
+      # str << bracelet[:name]
+      # str << '</i></h4>'
       str << '<h3>'
       str << bracelet[:price]
       str << '</h3>'

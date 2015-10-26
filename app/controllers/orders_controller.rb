@@ -1,8 +1,11 @@
 class OrdersController < ApplicationController
   layout 'admin'
+
+  before_filter :admin_authorize
+  before_filter :validate_admin_permission
     
-  def index
-    @orders = Order.all
+  def index(status_id=Order.all_statuses)
+    @orders = Order.where(status_id: status_id)
   end
   
   def show
@@ -42,7 +45,43 @@ class OrdersController < ApplicationController
     flash[:success] = 'Order has been reverted to open successfully!'
     redirect_to admin_store_orders_url
   end
+  
+  def new
+    render layout: "pages" #: false
+  end
+  
+  
+  def open
+    index(Order.open)
+    render 'index'
+  end
+  
+  def pending_payment
+    index(Order.pending_payment)
+    render 'index'
+  end
 
+  def pending_work
+    index(Order.pending_work)
+    render 'index'
+  end
+
+  def processing
+    index(Order.processing)
+    render 'index'
+  end
+
+  def processed
+    index(Order.processed)
+    render 'index'
+  end
+  
+  def cancelled
+    index(Order.cancelled)
+    render 'index'
+  end
+  
+  
   protected
     
     def order_params

@@ -11,7 +11,10 @@
 
     <title>Hope</title>
     
-    <%= stylesheet_link_tag 'pages/css/mobile.css', 'pages/css/tablet-landscape.css', 'pages/css/tablet-portrait.css', 'pages/css/bootstrap.min.css', 'pages/css/hope.css', 'pages/css/font-awesome.css' %>
+    <%= stylesheet_link_tag 'css/mobile.css', media: "screen and (min-width: 320px) and (max-width: 480px)" %>
+    <%= stylesheet_link_tag 'css/tablet-landscape.css', media: "screen and (min-width: 768px) and (max-width:  1024px) and (orientation : landscape)" %>
+    <%= stylesheet_link_tag 'css/tablet-portrait.css', media: "screen and (min-width: 768px) and (max-width: 1024px) and (orientation : portrait)" %>
+    <%= stylesheet_link_tag 'css/bootstrap.min.css', 'css/hope.css', 'css/font-awesome.css' %>
     
   </head>
 
@@ -25,8 +28,9 @@
   ================================================== -->
   <!-- Placed at the end of the document so the pages load faster -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-  <%= javascript_include_tag "pages/js/bootstrap.min.js" %>
+  <%= javascript_include_tag "js/bootstrap.min.js" %>
   
+	<% if params[:action] == 'contact' %>
 	<script src="http://maps.googleapis.com/maps/api/js"></script>
   <script>
   function initialize() {
@@ -64,6 +68,7 @@
   });
   
   </script>
+  <% end %>
 
   </body>
 </html>

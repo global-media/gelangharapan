@@ -2,9 +2,10 @@ module BannersHelper
   def banners(*args)
     active_banners = Banner.all.active.order(:sort)
     
-    str = '<div id="myCarousel" class="carousel slide" data-ride="carousel">'
+    str = '<div id="myCarousel1" class="carousel slide" data-ride="carousel">'
     str << indicator_str(active_banners.size)
     str << banner_items(active_banners)
+
     str << control_str  
     str << '</div>'
     
@@ -32,7 +33,7 @@ module BannersHelper
         str << '<div class="item'
         str << ' active' if index == 0
         str << '">'
-        str << image_tag(banner.image.url, {class: "img-responsive"})
+        str << image_tag(banner.image.url, {class: "img-responsive#{' cover' if index == 0}"})
         str << '</div>'
       end
       str << '</div>'

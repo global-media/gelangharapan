@@ -29,7 +29,7 @@
   		<div class="page-logo">
 
         <div class="col-md-10">
-  			<% if !ApplicationController::SITE_LOGO.blank? %><a href="/admin"><img src="/<%= ApplicationController::SITE_LOGO %>" alt="logo" class="logo-default" style="width:50%; height:50%"/></a><% else %><a href="/admin" class="navbar-brand"><%= ApplicationController::SITE_NAME %></a><% end %>
+  			<% if !ApplicationController::SITE_LOGO.blank? %><a href="/admin"><img src="<%= asset_path ApplicationController::SITE_LOGO %>" alt="logo" class="logo-default" style="width:50%; height:50%"/></a><% else %><a href="/admin" class="navbar-brand"><%= ApplicationController::SITE_NAME %></a><% end %>
         </div>
         
   			<div class="menu-toggler sidebar-toggler">

@@ -57,8 +57,11 @@ and (orientation : landscape){
 }
 p {
     font-family: standart;
-   font-size: 14px!important;
+   font-size: 16px!important;
     letter-spacing: 0px!important;
+}
+.bahasa img:nth-child(1) {
+    margin-right: 14px!important;
 }
 .home__content--6 {
     background: url('/assets/img/home-5.jpg')no-repeat;
@@ -121,21 +124,27 @@ p {
     background-size: 100%;
     margin: 0px 0px -67px 0px;
 }
-
+.bahasa {width:36%!important}
 .bahasa img {
     float: left;
-    width: 16%!important;
+      width: 12%!important;
     margin: 12px 19px 0px 0px;
 }
-
+.menu__atas .fa {
+    font-size: 20px;
+    position: absolute;
+    top: 11px!important;
+    right: 27px!important;
+    color: black;
+}
 .menu__atas li a {
     color: black;
     text-decoration: none;
     cursor: pointer;
-    padding:0px!important;
+
     font-family: tebel;
     font-style: normal;
-    font-size: 16px!important;
+     font-size: 13px!important;
     /* margin: 0px 0px 0px 0px; */
 }
 .home__content--4 img {

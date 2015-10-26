@@ -117,7 +117,11 @@ Rails.application.routes.draw do
       resources :customers
     end
     
-    # resources :forms
+    resources :tags do
+      post 'sort', on: :collection
+    end
+    
+    resources :dashboards
     
     get ':action', controller: 'admin', on: :collection, as: 'action'
   end  
