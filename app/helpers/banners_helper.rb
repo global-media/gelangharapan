@@ -5,7 +5,6 @@ module BannersHelper
     str = '<div id="myCarousel1" class="carousel slide" data-ride="carousel">'
     str << indicator_str(active_banners.size)
     str << banner_items(active_banners)
-
     str << control_str  
     str << '</div>'
     
