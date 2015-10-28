@@ -12,13 +12,23 @@
 	</div>
 	<div id="navbar" class="collapse navbar-collapse">
 		<ul class="nav navbar-nav">
-			<li><%= link_to 'Journey of Hope', pages_journey_url(lang: (params[:lang] || 'id')) %></li>
-			<li><%= link_to 'People behind Hope', pages_people_url(lang: (params[:lang] || 'id')) %></li>
-			<li><%= link_to 'Hope Health News', pages_news_url(lang: (params[:lang] || 'id')) %></li>
-			<li><%= link_to 'Upcoming Events', pages_events_url(lang: (params[:lang] || 'id')) %></li>
-			<li><%= link_to 'Bracelet of Hope', pages_bracelet_url(lang: (params[:lang] || 'id')) %></li>
-			<li><%= link_to 'Story of Hope', pages_story_url(lang: (params[:lang] || 'id')) %></li>
-			<li><%= link_to 'Contact Us', pages_contact_url(lang: (params[:lang] || 'id')) %></li>
+       <% if params[:lang] == 'id' %>
+  			<li><%= link_to 'Perjalanan Hope', pages_journey_url(lang: 'id') %></li>
+  			<li><%= link_to 'Orang dibalik Hope', pages_people_url(lang: 'id') %></li>
+  			<li><%= link_to 'Info Kesehatan Hope', pages_news_url(lang: 'id') %></li>
+  			<li><%= link_to 'Event akan datang', pages_events_url(lang: 'id') %></li>
+  			<li><%= link_to 'Gelang Harapan Hope', pages_bracelet_url(lang: 'id') %></li>
+  			<li><%= link_to 'Cerita Hope', pages_story_url(lang: 'id') %></li>
+  			<li><%= link_to 'Kontak Kami', pages_contact_url(lang: 'id') %></li>
+      <% else %>
+  			<li><%= link_to 'Journey of Hope', pages_journey_url(lang: (params[:lang] || 'id')) %></li>
+  			<li><%= link_to 'People behind Hope', pages_people_url(lang: (params[:lang] || 'id')) %></li>
+  			<li><%= link_to 'Hope Health News', pages_news_url(lang: (params[:lang] || 'id')) %></li>
+  			<li><%= link_to 'Upcoming Events', pages_events_url(lang: (params[:lang] || 'id')) %></li>
+  			<li><%= link_to 'Bracelet of Hope', pages_bracelet_url(lang: (params[:lang] || 'id')) %></li>
+  			<li><%= link_to 'Story of Hope', pages_story_url(lang: (params[:lang] || 'id')) %></li>
+  			<li><%= link_to 'Contact Us', pages_contact_url(lang: (params[:lang] || 'id')) %></li>
+      <% end %>
 		</ul>  	
 	</div>
 </nav>

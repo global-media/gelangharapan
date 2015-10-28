@@ -16,21 +16,22 @@
 	<div class="form-group form-md-line-input<%' has-error' unless @video.errors[:link_url].blank? %>">
 		<label class="col-md-3 control-label" for="form_control_1">Link URL</label>
 		<div class="col-md-9">
-      <%= f.text_field :link_url, class: "form-control#{' error' unless @video.errors[:link_url].blank?}", placeholder: 'Enter Link URL', id: 'form_control_1' %>			
+      <%= f.text_field :link_url, class: "form-control#{' error' unless @video.errors[:link_url].blank?}", placeholder: 'Enter Link URL', id: 'form_control_1' %>
+      <small>(Example: https://www.youtube.com/embed/2bHVDM0sKbA)</small>
       <div class="form-control-focus"></div>
 		</div>
 	</div>
 	<div class="form-group form-md-line-input<%' has-error' unless @video.errors[:article_id].blank? %>">
 		<label class="col-md-3 control-label" for="form_control_1">Article (Indonesian)</label>
 		<div class="col-md-9">
-      <%= f.text_area :article_id, class: "form-control autosizeme#{' error' unless @video.errors[:article_id].blank?}", placeholder: 'Enter Article (Indonesian)', id: 'form_control_1' %>			
+      <%= f.text_area :article_id, class: "form-control autosizeme#{' error' unless @video.errors[:article_id].blank?}", placeholder: 'Enter Article (Indonesian)', id: 'form_control_1', rows: 7 %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
 	<div class="form-group form-md-line-input<%' has-error' unless @video.errors[:article_en].blank? %>">
 		<label class="col-md-3 control-label" for="form_control_1">Article (English)</label>
 		<div class="col-md-9">
-      <%= f.text_area :article_en, class: "form-control autosizeme#{' error' unless @video.errors[:article_en].blank?}", placeholder: 'Enter Article (English)', id: 'form_control_1' %>			
+      <%= f.text_area :article_en, class: "form-control autosizeme#{' error' unless @video.errors[:article_en].blank?}", placeholder: 'Enter Article (English)', id: 'form_control_1', rows: 7 %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>	

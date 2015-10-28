@@ -269,12 +269,28 @@ module PagesHelper
     raw(str)
   end
   
-  def bracelets
-    items = []
-    items << {image_path: "img/bracelet/plat.png", name: 'Plat', price: 'Rp 100.000,00'}
-    items << {image_path: "img/bracelet/botega.png", name: 'Botega', price: 'Rp 100.000,00'}
-    items << {image_path: "img/bracelet/etnik.png", name: 'Etnik', price: 'Rp 100.000,00'}
-    items
-  end
+  protected
+  
+    def bracelets
+      items = []
+      items << {image_path: "img/bracelet/plat.png", name: 'Plat', price: 'Rp 100.000,00'}
+      items << {image_path: "img/bracelet/botega.png", name: 'Botega', price: 'Rp 100.000,00'}
+      items << {image_path: "img/bracelet/etnik.png", name: 'Etnik', price: 'Rp 100.000,00'}
+      items
+    end
+
+    def control_str
+      <<-STR
+    		<!-- Controls -->
+    		<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    			<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    			<span class="sr-only">Previous</span>
+    		</a>
+    		<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    			<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    			<span class="sr-only">Next</span>
+    		</a>
+      STR
+    end
 end
 
