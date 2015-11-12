@@ -1,20 +1,24 @@
 class Customer < ActiveRecord::Base
   has_many :orders
-  belongs_to :address
+  # belongs_to :address
   
-  validates_presence_of :email, :first_name, :username
-  validates_confirmation_of :confirm_password
-
-  attr_accessor :confirm_password
+  validates_presence_of :email, :full_name, unless: Proc.new {|c| c.reset_password? }
+  validates_presence_of :password, :password_confirmation, if: Proc.new {|c| c.validate_password? }
+  validates_confirmation_of :password
+  validates_uniqueness_of :email
+  # validates_presence_of :password_confirmation, :if => :password_changed?
   
-  def full_name
-    "#{first_name} #{last_name}"
-  end
+  attr_accessor :password_confirmation, :reset_password
   
   class << self
     def verify?(email_username, unencrypted_password)
-      return false unless user = User.where(email: email_username).first || User.where(username: email_username).first
-      user.authenticate(unencrypted_password)
+      return false unless customer = Customer.where(email: email_username).first || Customer.where(username: email_username).first
+      customer.authenticate(unencrypted_password)
+    end
+    
+    def hashify(email)
+      salt = 'oJasa'
+      Digest::MD5.hexdigest(salt + email + salt)
     end
   end
   
@@ -23,13 +27,36 @@ class Customer < ActiveRecord::Base
       self[:password] = BCrypt::Password.create(Digest::MD5.hexdigest(unencrypted_password), cost: 4)
     end
   end
-
+  
+  def password_confirmation=(unencrypted_password)
+    unless unencrypted_password.blank?
+      @password_confirmation = Digest::MD5.hexdigest(unencrypted_password)
+    end
+  end
+    
+  def password
+    BCrypt::Password.new(self[:password]) if self[:password]
+  end
+  
   def authenticate(unencrypted_password)
-    BCrypt::Password.new(password) == Digest::MD5.hexdigest(unencrypted_password) ? self : false
+    password == Digest::MD5.hexdigest(unencrypted_password) ? self : false
   end
   
   def sanitize!
-    self[:password] = '[FILTERED]'
+    self.password = '[FILTERED]'
     self
   end
+  
+  def full_address; "#{address} #{addressdetail}"; end
+  def customer_address; address; end
+  
+  protected
+  
+    def validate_password?
+      new_record? || reset_password?
+    end
+    
+    def reset_password?
+      reset_password
+    end
 end

@@ -1,11 +1,19 @@
 <div class="container menu__atas">
 	<div class="col-md-12 col-sm-12 col-xs-12">
-    <div class="bahasa pull-right col-md-4 col-xs-12 col-sm-5 mobile__login">
+    <% if logged_in? %>
+    <div class="bahasa pull-right col-md-3 col-xs-12 col-sm-4 mobile__login">
+    <% else %>
+    <div class="bahasa pull-right col-md-5 col-xs-12 col-sm-6 mobile__login">
+    <% end %>
       <ul>
     	<%= link_to raw(image_tag('img/eng.jpg', class: 'img-responsive', alt: '')), url_for(params.merge(lang: 'en')) %>
     	<%= link_to raw(image_tag('img/ind.jpg', class: 'img-responsive', alt: '')), url_for(params.merge(lang: 'id')) %>
-	    <li><%= link_to 'Sign In', authenticate_login_url %></li>
-    	<li><%= link_to 'Register', authenticate_register_url %></li>
+	    <% if logged_in? %>
+  		  <li><%= link_to 'Logout', logout_accounts_url %></li>
+  		<% else %>
+  	    <li><%= link_to 'Sign In', login_accounts_url %></li>
+      	<li><%= link_to 'Be a Warrior', signup_accounts_url %></li>
+      <% end %>
       </ul>
     	<!--i class="fa fa-shopping-cart"></i-->
   	</div>

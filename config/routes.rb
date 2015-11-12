@@ -126,8 +126,25 @@ Rails.application.routes.draw do
     get ':action', controller: 'admin', on: :collection, as: 'action'
   end  
   
-  get 'login', controller: 'authenticate', action: 'login', as: 'authenticate_login'
-  get 'register', controller: 'authenticate', action: 'register', as: 'authenticate_register'
+  resource :accounts, controller: 'accounts', only: [:login, :register] do
+    post 'login', controller: 'accounts', action: 'authenticate', on: :collection
+    post 'signup', controller: 'accounts', action: 'register', on: :collection
+    post 'forgot', controller: 'accounts', action: 'send_forgot', on: :collection
+    post 'reset', controller: 'accounts', action: 'reset_password', on: :collection
+    
+    get 'logout', controller: 'accounts', action: 'logout',  on: :collection
+    get 'login', controller: 'accounts', action: 'login', on: :collection
+    get 'signup', controller: 'accounts', action: 'signup', on: :collection
+    get 'forgot', controller: 'accounts', action: 'forgot', on: :collection
+    get 'reset', controller: 'accounts', action: 'reset', on: :collection
+    # get ':action', controller: 'accounts', on: :collection, as: 'action', except: ['authenticate', 'register', 'reset']
+  end
+
+
+  # post 'register', 
+  # 
+  # get 'login', controller: 'authenticate', action: 'login', as: 'authenticate_login'
+  # get 'register', controller: 'authenticate', action: 'register', as: 'authenticate_register'
     
   
   get ':lang/index', controller: 'pages', action: 'index', as: 'pages_index'

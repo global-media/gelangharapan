@@ -60,6 +60,13 @@ class ApplicationController < ActionController::Base
     end
     helper_method :customer
     
+    def validate_login
+      return true if logged_in?
+      flash[:error] = 'Please login first'
+      session[:redirect_to] = (request.get? ? request.url : request.referrer)
+      redirect_to login_accounts_url and return false
+    end
+
     def validate_admin_permission
       return false unless admin_logged_in?
       paths = request.path.split('/')[1..-1]
@@ -79,5 +86,15 @@ class ApplicationController < ActionController::Base
     def admin_home_url
       return admin_contents_news_index_url unless request.path == '/admin/contents/news'
       return '/'
+    end
+    
+    def verify_url?(identifier)
+      params[:h] == Customer.hashify(params[identifier])
+    end
+
+    def redirect_to_url
+      url = session[:redirect_to]
+      session[:redirect_to] = nil
+      url || :back
     end
 end

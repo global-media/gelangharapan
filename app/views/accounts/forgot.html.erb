@@ -1,0 +1,41 @@
+<div id="login" class="container-fluid">
+  <section class="login__content--1">
+
+    <%= render partial: 'layouts/top_navbar' %>
+
+    <div class="container menu">
+
+      <%= render partial: 'layouts/navbar' %>
+    
+		</div>
+
+	</section>
+	<section class="login__content--2" id="login__form">
+	<div class="container">
+	  <%= render partial: 'layouts/messages' %>
+    
+
+  	<center>
+  	<h4>Sign In</h4>	
+	
+    	<div class="form">
+    	  <%= form_tag forgot_accounts_url, method: :post, class: "nobottommargin", name: "login-form", id: 'login-form' do %>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <%= email_field_tag 'email', nil, {placeholder: "Email"} %>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <button type="submit">Request Password</button>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="forgot__pass">
+            <br>
+            <%= link_to 'Login', login_accounts_url, class: 'pull-right' %>
+        	</div>
+      	</div>
+      	<% end %>
+	    </div>
+		</center>
+	</div>
+	</section>
+
+</div>

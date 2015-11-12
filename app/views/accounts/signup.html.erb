@@ -1,0 +1,53 @@
+  <div id="register" class="container-fluid">
+  <section class="register__content--1">
+    	    	
+    <%= render partial: 'layouts/top_navbar' %>
+
+    <div class="container menu">
+
+      <%= render partial: 'layouts/navbar' %>
+
+		</div>
+		
+		</section>
+	<section class="register__content--2" id="register__form">
+		<div class="container">
+      <%= render partial: 'layouts/messages' %>
+
+	<center>
+
+	<h4>Register</h4>	
+
+	<div class="form">
+	<%= form_tag signup_accounts_url, method: :post, class: "nobottommargin", name: "register-form", id: "register-form" do %>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <%= text_field_tag 'customer[full_name]', @customer.full_name, {placeholder: "Full Name"} %>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <%= text_field_tag 'customer[company]', @customer.company, {placeholder: "Company"} %>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <%= text_field_tag 'customer[phone]', @customer.phone, {placeholder: "Phone Number"} %>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <%= email_field_tag 'customer[email]', @customer.email, {placeholder: "Email"} %>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <%= password_field_tag 'customer[password]', nil, {placeholder: "Password"} %>
+    </div>
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <%= password_field_tag 'customer[password_confirmation]', nil, {placeholder: "Confirm Password"} %>
+    </div>	
+	
+		<div class="col-md-12 col-xs-12 col-sm-12">
+		  <button type="submit">Join Us</button>
+	  </div>
+	<% end %>
+	</div>	
+	</center>
+	
+	</div>
+	</section>
+
+
+  </div>

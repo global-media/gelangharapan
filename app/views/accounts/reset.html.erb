@@ -1,0 +1,40 @@
+<div id="login" class="container-fluid">
+  <section class="login__content--1">
+
+    <%= render partial: 'layouts/top_navbar' %>
+
+    <div class="container menu">
+
+      <%= render partial: 'layouts/navbar' %>
+    
+		</div>
+
+	</section>
+	<section class="login__content--2" id="login__form">
+	<div class="container">
+	  <%= render partial: 'layouts/messages' %>
+    
+
+  	<center>
+  	<h4>Sign In</h4>	
+	
+    	<div class="form">
+        <%= form_tag reset_accounts_url, method: :post, class: "nobottommargin", name: "register-form", id: "register-form" do %>
+        <%= hidden_field_tag 'customer[id]', @customer.id %>
+        
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <%= password_field_tag 'customer[password]', nil, {placeholder: "Password"} %>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <%= password_field_tag 'customer[password_confirmation]', nil, {placeholder: "Confirm Password"} %>
+        </div>	
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <button type="submit">Reset Password</button>
+        </div>
+      	<% end %>
+	    </div>
+		</center>
+	</div>
+	</section>
+
+</div>
