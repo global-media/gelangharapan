@@ -17,7 +17,7 @@ class Customer < ActiveRecord::Base
     end
     
     def hashify(email)
-      salt = 'oJasa'
+      salt = 'HOPE'
       Digest::MD5.hexdigest(salt + email + salt)
     end
   end

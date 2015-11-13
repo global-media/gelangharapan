@@ -3,7 +3,7 @@ class PagesController < ApplicationController
   before_filter :assign_instance_variables
 
   def show
-    redirect_to order_services_url
+    redirect_to '/'
   end
   
   protected
