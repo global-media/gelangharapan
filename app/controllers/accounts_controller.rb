@@ -32,7 +32,7 @@ class AccountsController < ApplicationController
   end
   
   def authenticate
-    if @customer = Customer.verify?(params[:customer][:email_username], params[:customer][:password])
+    if @customer = Customer.verify?(params[:customer][:email], params[:customer][:password])
       initialize_session(@customer)
       flash[:success] = 'Login success!'
       redirect_to redirect_to_url and return 
