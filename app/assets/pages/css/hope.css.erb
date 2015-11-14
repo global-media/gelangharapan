@@ -98,25 +98,25 @@ body {
   #about p{font-size:17px;}
  #about center{
  margin: 15% 0px 0px 0px;}
-@font-face {
-    font-family: miring;
-    src: url(EBGaramond12-Italic.ttf);
-}
+ @font-face {
+     font-family: miring;
+     src: url("<%= asset_path 'css/EBGaramond12-Italic.ttf' %>");
+ }
 
-@font-face {
-    font-family: standart;
-    src: url(EBGaramond12-Regular.ttf);
-}
+ @font-face {
+     font-family: standart;
+     src: url("<%= asset_path 'css/EBGaramond12-Regular.ttf' %>");
+ }
 
-@font-face {
-    font-family: tebel;
-    src: url(Moon-Bold.otf);
-}
+ @font-face {
+     font-family: tebel;
+     src: url("<%= asset_path 'css/Moon-Bold.otf' %>");
+ }
 
-@font-face {
-    font-family: tipis;
-    src: url(Moon-Light.otf);
-}
+ @font-face {
+     font-family: tipis;
+     src: url("<%= asset_path 'css/Moon-Light.otf' %>");
+ }
 
 b{
 	font-family: tebel;
@@ -637,7 +637,7 @@ text-align:center;
 }
 
 .login__content--2 input{
-	    padding: 1% 11% 1% 2%;
+	    padding: 1% 2% 1% 2%;
     margin-bottom: 20px;
     border-radius: 8px;
     border: 1px solid black;width: 27%;
