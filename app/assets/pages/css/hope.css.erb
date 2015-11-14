@@ -5,6 +5,9 @@ text-rendering: optimizeLegibility !important;
 -webkit-font-smoothing: antialiased !important;
 
 }
+.wording__video{
+	overflow:hidden
+}
 .bahasa{    margin-left: 6px;}
 .bahasa img:nth-child(1){    margin-right: 23px;}
 #home .menu__atas ul {float:left;padding:0px}
@@ -16,7 +19,7 @@ text-rendering: optimizeLegibility !important;
 #home .menu__atas .fa{   font-size: 20px;
     position: absolute;
     top: 14px;
-    right: 48px;color:white}
+    right: 26px;color:white}
 	.carousel-inner>.item {
     -webkit-transition: -webkit-transform .6s ease-in-out;
     -o-transition: -o-transform .6s ease-in-out;
@@ -72,7 +75,8 @@ width: 43%;}
 .menu__atas .fa{    font-size: 20px;
     position: absolute;
     top: 14px;
-    right: 48px;
+ right: 26px;
+
     color: black;}
 	
 	.bahasa img{float:left;    width: 10%;
@@ -96,22 +100,22 @@ body {
  margin: 15% 0px 0px 0px;}
 @font-face {
     font-family: miring;
-    src: url("<%= asset_path 'css/EBGaramond12-Italic.ttf' %>");
+    src: url(EBGaramond12-Italic.ttf);
 }
 
 @font-face {
     font-family: standart;
-    src: url("<%= asset_path 'css/EBGaramond12-Regular.ttf' %>");
+    src: url(EBGaramond12-Regular.ttf);
 }
 
 @font-face {
     font-family: tebel;
-    src: url("<%= asset_path 'css/Moon-Bold.otf' %>");
+    src: url(Moon-Bold.otf);
 }
 
 @font-face {
     font-family: tipis;
-    src: url("<%= asset_path 'css/Moon-Light.otf' %>");
+    src: url(Moon-Light.otf);
 }
 
 b{
@@ -146,7 +150,7 @@ i{
 }
 
 .container-fluid{
-	padding:0px;
+	padding:0px
 }
 
 .footer{
@@ -171,13 +175,13 @@ i{
 .pic__2 {
     background: url("<%= asset_path 'img/home-2.jpg' %>")no-repeat;
     width: 100%;
-    height: 644px;
+    height: 644px;
     background-size: cover;
     background-position: 0px -95px;
 }
 section{
 	width:100%;
-	float:left;
+	float:left
 }
 
 .navbar-inverse {
@@ -408,6 +412,24 @@ margin: -3% 0px 5% 0px;
 	
 }
 
+a:hover{
+	   text-decoration: none;
+}
+#read__moore a:hover{
+	text-decoration:none;
+	color:white;
+}
+#read__moore{
+    background: black;
+    color: white;
+    /* padding: 1%; */
+    position: absolute;
+    bottom: 9%;
+    right: 0px;
+    /* top: 28px; */
+    padding: 0px 4px 0px 2px;
+}
+
 .journey__content--2 li{
 display: inline-block;
     margin: 6% 3% 6% 0%;
@@ -427,9 +449,11 @@ display: inline-block;
     margin: -4px 0px 12px 0px;
 }
 .journey__content--3 p {
-    margin: 0% 0% 21% 0px;
+
     font-size: 16px;
-}
+	    text-align: justify;
+		position:relative;
+}#read__moore{display:none}
 .journey__content--3 h4 {
     font-weight: bold;
 }
@@ -613,7 +637,7 @@ text-align:center;
 }
 
 .login__content--2 input{
-	    padding: 1% 2% 1% 2%;
+	    padding: 1% 11% 1% 2%;
     margin-bottom: 20px;
     border-radius: 8px;
     border: 1px solid black;width: 27%;
