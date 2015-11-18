@@ -18,7 +18,7 @@
     
   </head>
 
-  <body>
+  <body>    
   
   <%= yield %>
   
@@ -31,73 +31,105 @@
   <%= javascript_include_tag "js/bootstrap.min.js" %>
   
 	<% if params[:action] == 'contact' %>
-	<script src="http://maps.googleapis.com/maps/api/js"></script>
-  <script>
-  function initialize() {
-    var mapProp = {
-      center:new google.maps.LatLng(-6.2928772,106.78891,17.33),
-      zoom:17,
-      mapTypeId:google.maps.MapTypeId.ROADMAP
-    };
-    var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
-  }
-  google.maps.event.addDomListener(window, 'load', initialize);
 
-  $(document).ready(function(){	
-    $('.modal-footer').css({
-        "background-color": "white",
-        "padding": "6%"
-      });
+  	<script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script>
+    function initialize() {
+      var mapProp = {
+        center:new google.maps.LatLng(-6.2928772,106.78891,17.33),
+        zoom:17,
+        mapTypeId:google.maps.MapTypeId.ROADMAP
+      };
+      var map=new google.maps.Map(document.getElementById("googleMap"),mapProp);
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+
+    $(document).ready(function(){	
+      $('.modal-footer').css({
+          "background-color": "white",
+          "padding": "6%"
+        });
 
 
-      $(".artis").click(function(){
-          $("#myModal").modal('show');
-  		var src = $(this).find(".video-link1").attr('src');
+        $(".artis").click(function(){
+            $("#myModal").modal('show');
+    		var src = $(this).find(".video-link1").attr('src');
 
-  		$('.video-link').attr( 'src', src )
-  		$('#myModal').modal('show'); 
-  		$('video').load(); 
+    		$('.video-link').attr( 'src', src )
+    		$('#myModal').modal('show'); 
+    		$('video').load(); 
 
-  		return false;
-      });
+    		return false;
+        });
 
-       $(".close-video").click(function(){
+         $(".close-video").click(function(){
 
-  $(".video-artist")[0].pause();
-  	 });
-  });
+    $(".video-artist")[0].pause();
+    	 });
+    });
   
-  </script>
+    </script>
 
   <% elsif params[:action] == 'story' %>
 
-  <script>
-  $(document).ready(function(){	
+    <script>
+    $(document).ready(function(){	
 
-  $('.modal-footer').css({
-        "background-color": "white",
-        "padding": "6%"
-      });
+    $('.modal-footer').css({
+          "background-color": "white",
+          "padding": "6%"
+        });
 
 
-      $(".artis").click(function(){
-          $("#myModal").modal('show');
-  		var src = $(this).find(".video-link1").attr('src');
+        $(".artis").click(function(){
+            $("#myModal").modal('show');
+    		var src = $(this).find(".video-link1").attr('src');
 
-  		$('.video-link').attr( 'src', src )
-  		$('#myModal').modal('show'); 
-  		$('video').load(); 
+    		$('.video-link').attr( 'src', src )
+    		$('#myModal').modal('show'); 
+    		$('video').load(); 
 
-  		return false;
-      });
+    		return false;
+        });
 
-       $(".close-video").click(function(){
+         $(".close-video").click(function(){
 
-  $(".video-artist")[0].pause();
-  	 });
+    $(".video-artist")[0].pause();
+    	 });
 
-  });
-  </script>
+    });
+    </script>
+  
+  <% elsif params[:action] == 'index' %>
+
+  	<script>window.twttr = (function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0],
+      t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
+    <script>
+
+    $('#social__media li').click(function(){
+    var semua= $('.fb-content,.tw-content,.insta-content');
+    $('.fb-content').show();
+    var lompat = $(this).attr('data-target'),
+    	terbang = $('div[data-main="' +lompat+ '"]').show();
+
+    	semua.hide();
+    		terbang.fadeIn(1);
+    })
+    </script>
   
   <% end %>
   

@@ -1,3 +1,11 @@
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
   <div id="home" class="container-fluid">
 	<section class=" pic__1">
@@ -80,26 +88,38 @@
 		</div>
 	</section>
 	
-	<section class="home__content--8" id="social__media">
-		<div class="col-md-12">
-			<center>
-				<h3>GELANG HARAPAN</h3>
-				<ul>
-					<li><a><i class="fa fa-facebook"></i></a></li>		
-					<li><a><i class="fa fa-instagram"></i></a></li>		
-					<li><a><i class="fa fa-twitter"></i></a></li>		
-				</ul>					
-				<div class=" col-md-12  col-xs-12 col-sm-12">	
-					<div class="message__box">	
-						<i class="fa fa-eject"></i>
-						<p>Sed sit amet scelerisque nibh, at facilisis erat.
-						Integer ex turpis, efficitur et molestie quis,
-						vehicula in quam.</p>		
-					</div>		
-				</div>		
-			</center>
-		</div>
-	</section>
-
+		<section class="home__content--8" id="social__media">
+  		<div class="col-md-12">
+  			<center>
+  				<h3>GELANG HARAPAN</h3>
+  				<ul>
+  					<li data-target="facebook"><i class="fa fa-facebook"></i></li>		
+  					<li data-target="instagram"><i class="fa fa-instagram"></i></li>		
+  					<li data-target="twitter"><i class="fa fa-twitter"></i></li>		
+  				</ul>					
+  				<div data-main="facebook" class=" fb-content col-md-12  col-xs-12 col-sm-12">	
+  				<div class="fb-page" data-href="https://www.facebook.com/gelangharapan" data-small-header="true" data-adapt-container-width="true" data-hide-cover="true" data-show-facepile="true" data-show-posts="true"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/gelangharapan"><a href="https://www.facebook.com/gelangharapan">Gelang Harapan</a></blockquote></div></div>
+  					<div hidden class="message__box">	
+  						<i class="fa fa-eject"></i>
+  						<!--p>Sed sit amet scelerisque nibh, at facilisis erat.
+  						Integer ex turpis, efficitur et molestie quis,
+  						vehicula in quam.</p-->		
+  					</div>		
+  				</div>
+  				<div data-main="twitter" class=" tw-content col-md-12  col-xs-12 col-sm-12">	
+        		<a class="twitter-timeline"
+              data-widget-id="666684003462737920"
+              href="https://twitter.com/gelangharapan"
+              data-chrome="nofooter noborders">
+            </a>
+  				</div>
+  				<div data-main="instagram" class=" insta-content col-md-12  col-xs-12 col-sm-12">	
+  				<center>
+            <iframe src="http://snapwidget.com/in/?h=Z2VsYW5naGFyYXBhbnxpbnwxMjV8M3wzfHxub3w1fG5vbmV8b25TdGFydHx5ZXN8bm8=&ve=181115" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden;"></iframe>
+  				</center>
+  				</div>					
+  			</center>
+  		</div>
+  	</section>
     
   </div>
