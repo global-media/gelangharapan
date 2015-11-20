@@ -134,7 +134,7 @@ module PagesHelper
   
   def story_header
     str = '<center><div class="balon"></div>'
-    str << '<h3><i>Share your Story of</i><b> HOPE</b></h3><p>'
+    str << '<h3><b>#IamHope</b><i>Campaign</i></h3><p>'
     str << if english?
             "In this page, we feature our viral campaign #IamHOPE where prominent public figures, celebrities and our warriors of HOPE can make a 15 seconds video about their Hopes for cancer or any other aspects in life and spread it through social media.\n You can also send your Hopes and stories of HOPE and help us spread HOPE,become a Warrior of HOPE and get chance to be featured in our web."
           else
@@ -150,20 +150,22 @@ module PagesHelper
 
     Video.active.order(:sort).each do |video|
       str << '<div class="col-md-12 col-xs-12">'
-  		str << '<div class="col-md-6  col-xs-12 col-sm-6">'
+  		str << '<div class="col-md-6 col-xs-12 col-sm-6">'
       str << '<iframe class="embed-responsive-item" type="text/html" width="90%" height="285" src="'
       str << video.link_url 
       str << '" frameborder="0">'
       str << '</iframe>'
   
   		str << '</div>'
-  		str << '<div class="col-md-6  col-xs-12 col-sm-6">'
+  		str << '<div class="col-md-6 wording__video col-xs-12 col-sm-6">'
       str << '<h3><i>Video of</i><b>HOPE</b></h3>'
       str << '<h4>'
       str << video.location
       str << '</h4><p>'
       str << (english? ? video.article_en : video.article_id)
-      str << '</p></div>'
+      str << '</p>'
+      str << '<a class="read__moore">.. Read More</a>'
+      str << '</div>'
     end
 
     str << '</div>'

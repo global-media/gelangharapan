@@ -386,7 +386,7 @@ margin: -3% 0px 5% 0px;
 	background: url("<%= asset_path 'img/Story/balon.png' %>")no-repeat;
 	width: 324px;
 	height: 358px;
-	    background-position: 57px 16px;
+	    background-position: 80px 16px;
     background-size: 79%;
 }
 
@@ -426,15 +426,17 @@ a:hover{
 	text-decoration:none;
 	color:white;
 }
-#read__moore{
-    background: black;
-    color: white;
+.read__moore{
+	display:none;
+     background: white;
+    color: black;
     /* padding: 1%; */
     position: absolute;
-    bottom: 9%;
-    right: 0px;
+    bottom: 0.3%;
+    right: 18px;
     /* top: 28px; */
-    padding: 0px 4px 0px 2px;
+    padding: 0px 0px 0px 22px;
+	z-index:9999;
 }
 
 .journey__content--2 li{
@@ -460,7 +462,7 @@ display: inline-block;
     font-size: 16px;
 	    text-align: justify;
 		position:relative;
-}#read__moore{display:none}
+}
 .journey__content--3 h4 {
     font-weight: bold;
 }
