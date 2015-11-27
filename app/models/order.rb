@@ -8,18 +8,18 @@ class Order < ActiveRecord::Base
   
   STATUSES = {1 => 'Open',
               2 => 'Processed',
-              3 => 'Cancel'}.freeze
+              3 => 'Cancelled'}.freeze
 
   attr_accessor :freeze_discount
   
   def status; STATUSES[status_id];  end
   
   def open!;    update_attribute(:status_id, Order.status_id?('Open'));  end
-  def cancel!;  update_attribute(:status_id, Order.status_id?('Cancel'));  end
+  def cancel!;  update_attribute(:status_id, Order.status_id?('Cancelled'));  end
   def process!; update_attribute(:status_id, Order.status_id?('Processed'));  end
   
   def opened?;      status_id == Order.status_id?('Open');      end
-  def cancelled?;   status_id == Order.status_id?('Cancel');    end
+  def cancelled?;   status_id == Order.status_id?('Cancelled');    end
   def processed?;   status_id == Order.status_id?('Processed'); end
   
   class << self
@@ -29,6 +29,30 @@ class Order < ActiveRecord::Base
 
     def status_id?(status_name)
       STATUSES.detect {|k,v| v == status_name}.first || 1
+    end
+    
+    def open;             Order.status_id?('Open');             end
+    def processed;        Order.status_id?('Processed');        end
+    def cancelled;        Order.status_id?('Cancelled');        end
+    
+    def save_cart(customer, cart)
+      order = if cart['order_id']
+                Order.find(cart['order_id'])
+              else
+                Order.new(status_id: Order.open)
+              end
+      order.customer = Customer.find(customer['id'])
+      order.subtotal = 0
+      order.total = 0
+      order.order_items.destroy_all
+      cart['items'].each do |cart_item|
+        total_price = cart_item['quantity'].to_i * cart_item['value'].to_i
+        oi = OrderItem.create(sold_price: total_price, original_price: cart_item['value'], quantity: cart_item['quantity'], product_name: cart_item['name'])
+        order.items << oi
+        order.subtotal += total_price
+      end
+      order.calculate!
+      order
     end
   end
   
@@ -43,17 +67,10 @@ class Order < ActiveRecord::Base
   end
   
   def calculate!
-    calculate_subtotal!
-    calculate_discount! unless freeze_discount
-    self.total = subtotal - discount + tax + shipping
+    self.total = subtotal 
+    self.total -= discount if discount
+    self.total += tax if tax
+    self.total += shipping if shipping
     save!
-  end
-
-  def calculate_subtotal!
-    self.subtotal = items.inject(0) {|subtotal, i| subtotal += (i.original_price * i.quantity)}
-  end
-  
-  def calculate_discount!
-    self.discount = items.inject(0) {|discount, i| discount += (i.discount * i.quantity)}
   end
 end

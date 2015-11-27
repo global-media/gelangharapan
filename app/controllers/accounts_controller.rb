@@ -70,12 +70,14 @@ class AccountsController < ApplicationController
   protected
   
     def initialize_session(customer)
-      session[:customer] = customer.sanitize!
+      initialize_customer(customer)
+      initialize_cart
     end
     
     def clear_session
       session[:customer] = nil
       session[:cart] = nil
+      initialize_cart
     end
     
     def validate_logged_in

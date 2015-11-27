@@ -1,6 +1,6 @@
 <% if flash[:error] %>
   <div class="alert alert-danger">
-		<b><%= flash[:error] %></b>
+		<%= flash[:error] %>
     <% unless @errors.blank? %>
       <% @errors.full_messages.each do |error_message| %>
         <li><%= error_message %></li>
@@ -16,7 +16,6 @@
 <% if flash[:success] %>
 	<!--div class="alert alert-danger display-hide"-->
 	<div class="alert alert-success">
-		<button class="close" data-close="alert"></button>
 		<%= flash[:success] %>
 	</div>
 <% end %>

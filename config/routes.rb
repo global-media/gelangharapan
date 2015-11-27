@@ -126,6 +126,13 @@ Rails.application.routes.draw do
     get ':action', controller: 'admin', on: :collection, as: 'action'
   end  
   
+  resources :payments do
+    collection do
+      post :receive_webhook
+      post :notification
+    end
+  end
+  
   resource :accounts, controller: 'accounts', only: [:login, :register] do
     post 'login', controller: 'accounts', action: 'authenticate', on: :collection
     post 'signup', controller: 'accounts', action: 'register', on: :collection
@@ -146,8 +153,9 @@ Rails.application.routes.draw do
   # get 'login', controller: 'authenticate', action: 'login', as: 'authenticate_login'
   # get 'register', controller: 'authenticate', action: 'register', as: 'authenticate_register'
   
+  get 'cart', controller: 'pages', action: 'cart', as: 'pages_cart'
+  get 'modify_cart', controller: 'pages', action: 'modify_cart', as: 'pages_modify_cart'
   post ':lang/add_bracelet', controller: 'pages', action: 'add_bracelet', as: 'pages_add_bracelet'
-  get ':lang/modify_bracelet', controller: 'pages', action: 'modify_bracelet', as: 'pages_modify_bracelet'
   
   get ':lang/index', controller: 'pages', action: 'index', as: 'pages_index'
   get ':lang/journey', controller: 'pages', action: 'journey', as: 'pages_journey'
@@ -157,7 +165,6 @@ Rails.application.routes.draw do
   get ':lang/bracelet', controller: 'pages', action: 'bracelet', as: 'pages_bracelet'
   get ':lang/story', controller: 'pages', action: 'story', as: 'pages_story'
   get ':lang/contact', controller: 'pages', action: 'contact', as: 'pages_contact'
-  get ':lang/cart', controller: 'pages', action: 'cart', as: 'pages_cart'
   
   get ':lang', controller: 'pages', action: 'index', as: 'pages_lang', :defaults => {:lang => "id"}
   

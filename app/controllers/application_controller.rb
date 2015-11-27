@@ -46,14 +46,19 @@ class ApplicationController < ActionController::Base
     end
     helper_method :logged_in?
     
-    def initialize_cart
-      session[:cart] = {}
+    def initialize_customer(customer)
+      session[:customer] = customer.sanitize!
     end
     
-    def cart
+    def initialize_cart
+      session[:cart] ||= {}
+      session[:cart]['items'] ||= []
+    end
+    
+    def shopping_cart
       session[:cart] ||= {}
     end
-    helper_method :cart
+    helper_method :shopping_cart
     
     def customer
       session[:customer] ||= {}

@@ -9,7 +9,10 @@
 
 		</div>
 	
+  
 		<div class="container">
+  	  <%= render partial: 'layouts/messages' %>	
+
 			<div class="table-responsive cart_info">
 				<table class="table table-condensed">
 					<thead>
@@ -23,7 +26,7 @@
 						</tr>
 					</thead>
 					<tbody>
-					  <% cart['items'].each do |cart_item| %>
+					  <% shopping_cart['items'].each do |cart_item| %>
 					  <% bracelet = bracelet_options(cart_item) %>
 						<tr>
 							<td class="cart_product col-md-1">
@@ -37,23 +40,24 @@
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<%= link_to ' + ', pages_modify_bracelet_url(operation: 'add', name: bracelet[:name]), class: "cart_quantity_up" %>
+									<%= link_to ' + ', pages_modify_cart_url(operation: 'add', name: bracelet[:name]), class: "cart_quantity_up" %>
 									<input class="cart_quantity_input" type="text" name="quantity" value="<%= cart_item['quantity'] %>" autocomplete="off" size="2">
-									<%= link_to ' - ', pages_modify_bracelet_url(operation: 'sub', name: bracelet[:name]), class: "cart_quantity_down" %>
+									<%= link_to ' - ', pages_modify_cart_url(operation: 'sub', name: bracelet[:name]), class: "cart_quantity_down" %>
 								</div>
 							</td>
-							<td class="cart_total">
+							<td class="cart_price">
 								<p class="cart_total_price"><%= bracelet_total_item_price(cart_item) %></p>
 							</td>
 							<td class="cart_delete">
-								<%= link_to raw('<i class="fa fa-times"></i>'), pages_modify_bracelet_url(operation: 'delete', name: bracelet[:name]), class: "cart_quantity_delete" %>
+								<%= link_to raw('<i class="fa fa-times"></i>'), pages_modify_cart_url(operation: 'delete', name: bracelet[:name]), class: "cart_quantity_delete" %>
 							</td>
 						</tr>
             <% end %>
 					</tbody>
 				</table>
+        <%= link_to 'Check Out', payments_url, class: "check__out" %>
 			</div>
-		<button class="check__out">Check Out</button>
+
 		</div>
 	
 		</section>
