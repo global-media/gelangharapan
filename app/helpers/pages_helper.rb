@@ -255,14 +255,21 @@ module PagesHelper
     str = '<div class="col-md-12 col-xs-12 col-sm-12 bracelet__list">'
     
     bracelets.each do |bracelet|
-      str << '<div class="col-md-4  col-xs-12 col-sm-4">'
-      str << image_tag(bracelet[:image_path], {class: "img-responsive"})
+      str << '<div class="col-md-4 product col-xs-12 col-sm-4">'
+      str << image_tag(bracelet[:image_path], {class: " gelang__list img-responsive"})
       # str << '<h4><i>'
       # str << bracelet[:name]
       # str << '</i></h4>'
       str << '<h3>'
       str << bracelet[:price]
       str << '</h3>'
+      
+      str << form_tag(pages_add_bracelet_url, method: :post)
+      str << hidden_field_tag('bracelet[name]', bracelet[:name])
+      str << hidden_field_tag('bracelet[value]', bracelet[:value])
+      str << '<button>BUY</button>'
+      str << '</form>'
+
       str << '</div>'
     end	
     
@@ -271,13 +278,22 @@ module PagesHelper
     raw(str)
   end
   
+  def bracelet_options(bracelet)
+    bracelets.find {|item| item[:name] == bracelet['name']}
+  end
+  
+  def bracelet_total_item_price(bracelet)
+    total_price = bracelet['quantity'].to_i * bracelet['value'].to_i
+    pretty_print_price[total_price.to_s] || total_price
+  end
+  
   protected
   
     def bracelets
       items = []
-      items << {image_path: "img/bracelet/plat.png", name: 'Plat', price: 'Rp 100.000,00'}
-      items << {image_path: "img/bracelet/botega.png", name: 'Botega', price: 'Rp 100.000,00'}
-      items << {image_path: "img/bracelet/etnik.png", name: 'Etnik', price: 'Rp 100.000,00'}
+      items << {image_path: "img/bracelet/plat.png", name: 'Plat', price: 'Rp 100.000,00', value: '100000'}
+      items << {image_path: "img/bracelet/botega.png", name: 'Botega', price: 'Rp 100.000,00', value: '100000'}
+      items << {image_path: "img/bracelet/etnik.png", name: 'Etnik', price: 'Rp 100.000,00', value: '100000'}
       items
     end
 
@@ -293,6 +309,21 @@ module PagesHelper
     			<span class="sr-only">Next</span>
     		</a>
       STR
+    end
+    
+    def pretty_print_price
+      {
+        '100000' => 'Rp 100.000,00',
+        '200000' => 'Rp 200.000,00',
+        '300000' => 'Rp 300.000,00',
+        '400000' => 'Rp 400.000,00',
+        '500000' => 'Rp 500.000,00',
+        '600000' => 'Rp 600.000,00',
+        '700000' => 'Rp 700.000,00',
+        '800000' => 'Rp 800.000,00',
+        '900000' => 'Rp 900.000,00',
+        '1000000' => 'Rp 1.000.000,00'
+      }
     end
 end
 

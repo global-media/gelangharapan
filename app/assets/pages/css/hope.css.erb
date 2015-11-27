@@ -8,7 +8,18 @@ text-rendering: optimizeLegibility !important;
 .wording__video{
 	overflow:hidden
 }
-
+.check__out{
+	    color: white;
+    background: black;
+    border: transparent;
+    padding: 1%;
+    border-radius: 4px;
+    float: right;
+    margin-bottom: 3%;
+}
+.nama__gelang,.cart_price,.cart_quantity_button,.cart_total,.cart_description,.cart_delete{
+    padding: 22px 0px 0px 0px!important;
+}
 .insta-content iframe{
 	width:30%; height:390px;
 	    margin: auto;
@@ -96,34 +107,34 @@ html {
 body {
     margin-bottom: 27%;
 }
- #about h2 , #about h3 , #about p{
-	       font-family: standart;color:white
- }
- #about b{
-	 font-family: standart;
- }
-  #about p{font-size:17px;}
- #about center{
- margin: 15% 0px 0px 0px;}
- @font-face {
-     font-family: miring;
-     src: url("<%= asset_path 'css/EBGaramond12-Italic.ttf' %>");
- }
+#about h2 , #about h3 , #about p{
+       font-family: standart;color:white
+}
+#about b{
+ font-family: standart;
+}
+#about p{font-size:17px;}
+#about center{
+margin: 15% 0px 0px 0px;}
+@font-face {
+   font-family: miring;
+   src: url("<%= asset_path 'css/EBGaramond12-Italic.ttf' %>");
+}
 
- @font-face {
-     font-family: standart;
-     src: url("<%= asset_path 'css/EBGaramond12-Regular.ttf' %>");
- }
+@font-face {
+   font-family: standart;
+   src: url("<%= asset_path 'css/EBGaramond12-Regular.ttf' %>");
+}
 
- @font-face {
-     font-family: tebel;
-     src: url("<%= asset_path 'css/Moon-Bold.otf' %>");
- }
+@font-face {
+   font-family: tebel;
+   src: url("<%= asset_path 'css/Moon-Bold.otf' %>");
+}
 
- @font-face {
-     font-family: tipis;
-     src: url("<%= asset_path 'css/Moon-Light.otf' %>");
- }
+@font-face {
+   font-family: tipis;
+   src: url("<%= asset_path 'css/Moon-Light.otf' %>");
+}
 
 b{
 	font-family: tebel;
@@ -134,6 +145,44 @@ b{
 .navbar-nav>li {
     float: left;
     margin-left: 13px;
+}
+#detail .modal-footer{
+	background:white;
+}
+#detail .info{
+	       margin-top: 8%;
+}
+
+#detail input{
+	    padding: 1% 11% 1% 2%;
+    margin-bottom: 20px;
+    border-radius: 4px;
+    border: 1px solid black;
+	width:100%
+}
+#detail textarea{
+	    width: 100%;
+    border: 1px solid black;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+#detail .buy{
+	background: black;
+    color: white;
+    border: transparent;
+    border-radius: 4px;
+    width: 42%;
+  
+    padding: 1%;
+}
+.product button {
+	background: black;
+    color: white;
+    border: transparent;
+    border-radius: 4px;
+    width: 42%;
+    margin-top: 12%;
+    padding: 1%;
 }
 .navbar-inverse .navbar-nav>li>a {
     color: white;
@@ -626,7 +675,9 @@ margin: 0px 17% 7% 17%;
 	margin:auto
 	
 }
-
+.bracelet__content--1 .cart_price p{
+    margin: 3% 9% 0px 0%;
+}
 .bracelet__content--1 .bracelet__list{
 text-align:center;
     margin: 7% 0px 7% 0px;

@@ -135,6 +135,19 @@
     });
     </script>
     
+	<% elsif params[:action] == 'bracelet' %>
+
+    <script>
+    $(document).ready(function(){
+        $(".product").click(function(){
+    	var ini = $(this),
+    	img = ini.find('.gelang__list').attr('src');
+    	$('.gelang__detail').attr('src' , img);
+            $("#detail").modal();
+        });
+    });
+    </script>
+
 	<% elsif params[:action] == 'contact' %>
 
   	<script src="http://maps.googleapis.com/maps/api/js"></script>

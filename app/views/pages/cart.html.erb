@@ -1,0 +1,63 @@
+  <div id="bracelet" class="container-fluid">
+  <section class="bracelet__content--1">
+
+	  <%= render partial: 'layouts/top_navbar' %>
+	
+  <div class="container menu">
+
+      <%= render partial: 'layouts/navbar' %>
+
+		</div>
+	
+		<div class="container">
+			<div class="table-responsive cart_info">
+				<table class="table table-condensed">
+					<thead>
+						<tr class="cart_menu">
+							<td class="image col-md-1"></td>
+							<td class="description col-md-3">Item</td>
+							<td class="price">Price</td>
+							<td class="quantity">Quantity</td>
+							<td class="total">Total</td>
+							<td></td>
+						</tr>
+					</thead>
+					<tbody>
+					  <% cart['items'].each do |cart_item| %>
+					  <% bracelet = bracelet_options(cart_item) %>
+						<tr>
+							<td class="cart_product col-md-1">
+							  <%= image_tag(bracelet[:image_path], {class: " img-responsive"}) %>
+							</td>
+							<td class="cart_description col-md-3">
+								<h4><%= bracelet[:name] %></h4>
+							</td>
+							<td class="cart_price">
+								<p><%= bracelet[:price] %></p>
+							</td>
+							<td class="cart_quantity">
+								<div class="cart_quantity_button">
+									<%= link_to ' + ', pages_modify_bracelet_url(operation: 'add', name: bracelet[:name]), class: "cart_quantity_up" %>
+									<input class="cart_quantity_input" type="text" name="quantity" value="<%= cart_item['quantity'] %>" autocomplete="off" size="2">
+									<%= link_to ' - ', pages_modify_bracelet_url(operation: 'sub', name: bracelet[:name]), class: "cart_quantity_down" %>
+								</div>
+							</td>
+							<td class="cart_total">
+								<p class="cart_total_price"><%= bracelet_total_item_price(cart_item) %></p>
+							</td>
+							<td class="cart_delete">
+								<%= link_to raw('<i class="fa fa-times"></i>'), pages_modify_bracelet_url(operation: 'delete', name: bracelet[:name]), class: "cart_quantity_delete" %>
+							</td>
+						</tr>
+            <% end %>
+					</tbody>
+				</table>
+			</div>
+		<button class="check__out">Check Out</button>
+		</div>
+	
+		</section>
+
+
+
+  </div>
