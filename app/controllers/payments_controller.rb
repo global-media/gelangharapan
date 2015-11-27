@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
   before_filter :validate_order_id, only: [:notification, :thanks, :error]
   
   def index
-    @order = Order.save_cart(customer, cart)
+    @order = Order.save_cart(customer, shopping_cart)
     shopping_cart['order_id'] = @order.id
 
     @payment = make_payment
