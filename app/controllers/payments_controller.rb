@@ -51,7 +51,8 @@ class PaymentsController < ApplicationController
   end
   
   def success
-    redirect_to pages_bracelet_url(anchor: 'items') and return
+    flash[:success] = "Thank you for your support by purchasing our bracelet of Hope bracelet"
+    redirect_to pages_bracelet_url(anchor: 'items', lang: 'en') and return
   end
 
   def receive_webhook

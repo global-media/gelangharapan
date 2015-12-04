@@ -130,6 +130,7 @@ Rails.application.routes.draw do
     collection do
       post :receive_webhook
       post :notification
+      get :success
     end
   end
   
