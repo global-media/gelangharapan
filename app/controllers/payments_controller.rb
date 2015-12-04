@@ -4,6 +4,8 @@ class PaymentsController < ApplicationController
   before_filter :validate_order_id, only: [:notification, :success, :error]
   before_filter :validate_cart, only: [:index]
   
+  protect_from_forgery with: :exception
+  
   def index
     @order = Order.save_cart(customer, shopping_cart)
     shopping_cart['order_id'] = @order.id
@@ -109,7 +111,14 @@ class PaymentsController < ApplicationController
     def validate_order_id
       order_id, customer_id = parse_customer_order
       @order = Order.where(id: order_id, customer_id: customer_id).first
-      render json: {error: 'We are sorry, we cannot find your order at the moment'}.to_json and return false unless @order
+      respond_to do |format|
+        format.html { 
+          flash[:error] = 'We are sorry, we cannot find your order at the moment'
+          redirect_to pages_cart_url and return false
+        }
+        format.json { render json: {error: 'We are sorry, we cannot find your order at the moment' }.to_json and return false}
+      end unless @order
+      # render json: {error: 'We are sorry, we cannot find your order at the moment'}.to_json and return false unless @order
     end
     
     def parse_customer_order
