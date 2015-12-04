@@ -3,7 +3,7 @@
 
 	  <%= render partial: 'layouts/top_navbar' %>
 	
-  <div class="container menu">
+    <div class="container menu">
 
       <%= render partial: 'layouts/navbar' %>
 
@@ -55,12 +55,38 @@
             <% end %>
 					</tbody>
 				</table>
-        <%= link_to 'Check Out', payments_url, class: "check__out" %>
-			</div>
-
+				</div>
+        
 		</div>
 	
 		</section>
+
+ 	  <section class="register__content--2" id="register__form">
+ 		<div class="container">
+
+    	<%= form_tag checkout_payments_url, method: :post, class: "nobottommargin", name: "register-form", id: "register-form" do %>
+    	<center>
+  		<div class="form">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <%= text_field_tag 'shipping[full_name]', shopping_cart['shipping']['full_name'], {placeholder: "Full Name"} %>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <%= text_field_tag 'shipping[address]', shopping_cart['shipping']['address'], {placeholder: "Address"} %>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <%= text_field_tag 'shipping[detail]', shopping_cart['shipping']['detail'], {placeholder: "Address Detail"} %>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <%= text_field_tag 'shipping[phone]', shopping_cart['shipping']['phone'], {placeholder: "Phone"} %>
+        </div>
+        <button type="submit" class="check__out">Check Out</button>
+  	  </div>
+      </center>
+    	<% end %>
+
+  	</div>
+    
+  	</section>
 
 
 

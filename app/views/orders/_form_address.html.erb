@@ -1,46 +1,31 @@
-<a name="<%= address_type %>"></a> 
+<a name="shipping"></a> 
 
   <div class="form-body">
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:street1].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Street1</label>
+  	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:full_name].blank? %>">
+  		<label class="col-md-2 control-label" for="form_control_1">Full Name</label>
   		<div class="col-md-10">
-        <%= text_field_tag "#{address_type}[street1]", @order.send(address_type).street1, class: "form-control#{' error' unless @order.send(address_type).errors[:street1].blank?}", placeholder: ' Enter Street1', id: 'form_control_1', readonly: readonly %>
+        <%= text_field_tag "order[full_name]", @order.full_name, class: "form-control#{' error' unless @order.errors[:full_name].blank?}", placeholder: ' Enter Full Name', id: 'form_control_1', readonly: readonly %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>
-
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:street2].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Street2</label>
+  	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:phone].blank? %>">
+  		<label class="col-md-2 control-label" for="form_control_1">Phone Number</label>
   		<div class="col-md-10">
-        <%= text_field_tag "#{address_type}[street2]", @order.send(address_type).street2, class: "form-control#{' error' unless @order.send(address_type).errors[:street2].blank?}", placeholder: ' Enter Street2', id: 'form_control_1', readonly: readonly %>
+        <%= text_field_tag "order[phone]", @order.phone, class: "form-control#{' error' unless @order.errors[:phone].blank?}", placeholder: ' Enter Phone Number', id: 'form_control_1', readonly: readonly %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:city].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">City</label>
+  	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:address].blank? %>">
+  		<label class="col-md-2 control-label" for="form_control_1">Address</label>
   		<div class="col-md-10">
-        <%= text_field_tag "#{address_type}[city]", @order.send(address_type).city, class: "form-control#{' error' unless @order.send(address_type).errors[:city].blank?}", placeholder: ' Enter City', id: 'form_control_1', readonly: readonly %>
+        <%= text_field_tag "order[address]", @order.address, class: "form-control#{' error' unless @order.errors[:address].blank?}", placeholder: ' Enter Address', id: 'form_control_1', readonly: readonly %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:region].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Region</label>
+  	<div class="form-group form-md-line-input<%' has-error' unless @order.errors[:detail].blank? %>">
+  		<label class="col-md-2 control-label" for="form_control_1">Address Detail</label>
   		<div class="col-md-10">
-        <%= text_field_tag "#{address_type}[region]", @order.send(address_type).region, class: "form-control#{' error' unless @order.send(address_type).errors[:region].blank?}", placeholder: ' Enter Region', id: 'form_control_1', readonly: readonly %>
-        <div class="form-control-focus"></div>
-  		</div>
-  	</div>
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:postal_code].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Postal Code</label>
-  		<div class="col-md-10">
-        <%= text_field_tag "#{address_type}[postal_code]", @order.send(address_type).postal_code, class: "form-control#{' error' unless @order.send(address_type).errors[:postal_code].blank?}", placeholder: ' Enter Postal Code', id: 'form_control_1', readonly: readonly %>
-        <div class="form-control-focus"></div>
-  		</div>
-  	</div>
-  	<div class="form-group form-md-line-input<%' has-error' unless @order.send(address_type).errors[:country].blank? %>">
-  		<label class="col-md-2 control-label" for="form_control_1">Country</label>
-  		<div class="col-md-10">
-        <%= select_tag "#{address_type}[country]", options_for_select(country_options, @order.send(address_type).country), {class: "form-control input-xlarge select2me#{' error' unless @order.send(address_type).errors[:country].blank?}", disabled: readonly, "data-placeholder" => "Select Country..."} %>
+        <%= text_field_tag "order[detail]", @order.detail, class: "form-control#{' error' unless @order.errors[:detail].blank?}", placeholder: ' Enter Address Detail', id: 'form_control_1', readonly: readonly %>
         <div class="form-control-focus"></div>
   		</div>
   	</div>

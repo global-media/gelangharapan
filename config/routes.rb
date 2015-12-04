@@ -112,6 +112,10 @@ Rails.application.routes.draw do
         post 'revert/:id', on: :collection, action: 'revert', as: 'revert'
         post 'process/:id', on: :collection, action: 'do_process', as: 'process'
         get ':id/:action', on: :collection, as: 'action', id: nil
+        
+        get 'paid', action: 'paid', on: :collection, as: 'paid'
+        get 'cancelled', action: 'cancelled', on: :collection, as: 'cancelled'
+        get 'pending_payment', action: 'pending_payment', on: :collection, as: 'pending_payment'
       end
       
       resources :customers
@@ -128,6 +132,7 @@ Rails.application.routes.draw do
   
   resources :payments do
     collection do
+      post :checkout
       post :receive_webhook
       post :notification
       get :success

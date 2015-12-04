@@ -48,9 +48,29 @@
 					<%= li_active?('customers') %>
 						<%= link_to raw('<i class="icon-user-following"></i> Customers'), admin_store_customers_url %>
 					</li>
-					<%= li_active?('orders') %>
-						<%= link_to raw('<i class="icon-basket"></i> Orders'), admin_store_orders_url %>
-					</li>
+
+					<%= li_active_open?('orders') %>
+            <a href="javascript:;">
+    				<i class="icon-basket"></i>
+    				<span class="title">Orders</span>
+    				<%= span_selected('orders') %>
+            <span class="arrow<%= is_open?('orders') %>"></span>
+    				</a>
+    				<ul class="sub-menu">
+    					<%= li_active?('pending_payment') %>
+    						<%= link_to raw('<i class="icon-basket"></i> Pending Payment'),  pending_payment_admin_store_orders_url %>
+    					</li>
+    					<%= li_active?('paid') %>
+    						<%= link_to raw('<i class="icon-basket"></i> Paid'),  paid_admin_store_orders_url %>
+    					</li>
+    					<%= li_active?('cancelled') %>
+    						<%= link_to raw('<i class="icon-basket"></i> Cancelled'),  cancelled_admin_store_orders_url %>
+    					</li>
+    					<%= li_active?('all') %>
+    						<%= link_to raw('<i class="icon-basket"></i> All'), admin_store_orders_url %>
+    					</li>
+  				  </ul>
+  				</li>
 				</ul>
 			</li>
 			<li class="heading">

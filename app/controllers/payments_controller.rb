@@ -2,11 +2,11 @@ class PaymentsController < ApplicationController
   before_filter :validate_login
   skip_before_filter :verify_authenticity_token, only: [:receive_webhook]
   before_filter :validate_order_id, only: [:notification, :success, :error]
-  before_filter :validate_cart, only: [:index]
+  before_filter :validate_cart, :validate_shipping, only: [:checkout]
   
   protect_from_forgery with: :null_session
   
-  def index
+  def checkout
     @order = Order.save_cart(customer, shopping_cart)
     shopping_cart['order_id'] = @order.id
 
@@ -131,8 +131,27 @@ class PaymentsController < ApplicationController
     def validate_cart
       if shopping_cart['items'].blank?
         flash[:error] = 'Your shopping cart is empty'
-        redirect_to pages_cart_url and return 
+        redirect_to pages_cart_url and return false
       end
+    end
+    
+    def validate_shipping
+      if !(shipping_params = params[:shipping]).blank?
+        session['cart']['shipping']['full_name'] = shipping_params[:full_name]
+        session['cart']['shipping']['address'] = shipping_params[:address]
+        session['cart']['shipping']['detail'] = shipping_params[:detail]
+        session['cart']['shipping']['phone'] = shipping_params[:phone]
+
+        unless shipping_params[:full_name].blank? || 
+                shipping_params[:address].blank? ||
+                shipping_params[:detail].blank? ||
+                shipping_params[:phone].blank?
+          return true
+        end
+      end
+      
+      flash[:error] = 'Please complete your shipping address'
+      redirect_to pages_cart_url and return false
     end
     
     def clear_cart_session

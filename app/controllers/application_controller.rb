@@ -53,6 +53,7 @@ class ApplicationController < ActionController::Base
     def initialize_cart(customer=nil)
       session[:cart] ||= {}
       session[:cart]['items'] ||= []
+      session[:cart]['shipping'] ||= {}
     end
     
     def shopping_cart

@@ -55,6 +55,10 @@ class Order < ActiveRecord::Base
                 Order.new(status_id: Order.pending_payment)
               end
       order.customer = Customer.find(customer['id'])
+      order.full_name = cart['shipping']['full_name']
+      order.phone = cart['shipping']['phone']
+      order.address = cart['shipping']['address']
+      order.detail = cart['shipping']['detail']
       order.subtotal = 0
       order.total = 0
       order.order_items.destroy_all
