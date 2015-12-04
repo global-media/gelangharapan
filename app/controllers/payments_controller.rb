@@ -1,7 +1,8 @@
 class PaymentsController < ApplicationController
   before_filter :validate_login
   skip_before_filter :verify_authenticity_token, only: [:receive_webhook]
-  before_filter :validate_order_id, only: [:notification, :thanks, :error]
+  before_filter :validate_order_id, only: [:notification, :success, :error]
+  before_filter :validate_cart, only: [:index]
   
   def index
     @order = Order.save_cart(customer, shopping_cart)
@@ -49,36 +50,9 @@ class PaymentsController < ApplicationController
     end
   end
   
-=begin
-  def new
-    @payment = make_payment
+  def success
+    redirect_to pages_bracelet_url(anchor: 'items') and return
   end
-
-  def create
-    @payment = make_payment
-
-    if params[:type] == "vtweb"
-      @result = Veritrans.charge(
-        payment_type: "VTWEB",
-        transaction_details: {
-          order_id: @payment.order_id,
-          gross_amount: @payment.amount
-        }
-      )
-      redirect_to @result.redirect_url
-      return
-    end
-
-    @result = Veritrans.charge(
-      payment_type: "credit_card",
-      credit_card: { token_id: params[:payment][:token_id] },
-      transaction_details: {
-        order_id: @payment.order_id,
-        gross_amount: params[:payment][:amount].presence || @payment.amount
-      }
-    )
-  end
-=end
 
   def receive_webhook
     post_body = request.body.read
@@ -131,11 +105,7 @@ class PaymentsController < ApplicationController
     def validate_order_id
       order_id, customer_id = parse_customer_order
       @order = Order.where(id: order_id, customer_id: customer_id).first
-      if @order
-        render json: {success: 'Thank you'}.to_json and return true
-      else
-        render json: {error: 'We are sorry, we cannot find your order at the moment'}.to_json and return false
-      end
+      render json: {error: 'We are sorry, we cannot find your order at the moment'}.to_json and return false unless @order
     end
     
     def parse_customer_order
@@ -143,6 +113,13 @@ class PaymentsController < ApplicationController
       order_id = order_id_params[1]
       customer_id = order_id_params[2]
       [order_id, customer_id]
+    end
+    
+    def validate_cart
+      if shopping_cart['items'].blank?
+        flash[:error] = 'Your shopping cart is empty'
+        redirect_to pages_cart_url and return 
+      end
     end
 
 end
