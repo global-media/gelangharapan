@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
   before_filter :validate_order_id, only: [:notification, :success, :error]
   before_filter :validate_cart, only: [:index]
   
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :null_session
   
   def index
     @order = Order.save_cart(customer, shopping_cart)
