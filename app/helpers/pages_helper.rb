@@ -291,9 +291,9 @@ module PagesHelper
   
     def bracelets
       items = []
-      items << {image_path: "img/bracelet/plat.png", name: 'Plat', price: 'Rp 100.000,00', value: '100000'}
-      items << {image_path: "img/bracelet/botega.png", name: 'Botega', price: 'Rp 100.000,00', value: '100000'}
       items << {image_path: "img/bracelet/etnik.png", name: 'Etnik', price: 'Rp 100.000,00', value: '100000'}
+      items << {image_path: "img/bracelet/kepang.png", name: 'Kepang', price: 'Rp 100.000,00', value: '100000'}
+      items << {image_path: "img/bracelet/plat.png", name: 'Plat', price: 'Rp 100.000,00', value: '100000'}
       items
     end
 

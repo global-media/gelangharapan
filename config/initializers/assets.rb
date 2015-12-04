@@ -28,3 +28,4 @@ Rails.application.config.assets.precompile += %w( img/people/flower.png img/heal
 Rails.application.config.assets.precompile += %w( css/EBGaramond12-Italic.ttf css/EBGaramond12-Regular.ttf css/Moon-Bold.otf css/Moon-Light.otf )
 
 Rails.application.config.assets.precompile += %w( img/Story/story-2.jpg img/Story/story-3.jpg img/Story/balon.png img/corak.png img/journey/journey-1.jpg img/footer.png img/home-1.jpg img/home-2.jpg img/home-3.jpg img/home-5.jpg img/people/people.jpg img/bracelet/cover.jpg img/bl.png )
+Rails.application.config.assets.precompile += %w( img/bracelet/etnik.jpg img/bracelet/kepang.png img/bracelet/plat.png )
