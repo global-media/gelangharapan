@@ -11,6 +11,10 @@ class PaymentsController < ApplicationController
     
     @result = Veritrans.charge(
       payment_type: "VTWEB",
+      vtweb: {
+        enabled_payments: [:credit_card],
+        credit_card_3d_secure: true
+      },
       transaction_details: {
         order_id: @payment.order_id,
         gross_amount: @payment.amount
@@ -35,7 +39,7 @@ class PaymentsController < ApplicationController
       @order.masked_card = params[:masked_card]
       @order.veritrans_order_id = params[:order_id]
       @order.bank = params[:bank]
-      @order.status_id = Order.processed
+      @order.status_id = Order.paid
       @order.save
       CustomerMailer.payment_received(@order).deliver_now
       AdminMailer.notify_support(@order, "Paid order waiting for work").deliver_now

@@ -71,7 +71,7 @@ class AccountsController < ApplicationController
   
     def initialize_session(customer)
       initialize_customer(customer)
-      initialize_cart
+      initialize_cart(customer)
     end
     
     def clear_session

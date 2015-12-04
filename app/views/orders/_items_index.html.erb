@@ -18,22 +18,18 @@
 					<thead>
 					<tr>
 						<th><i class="fa fa-user"></i> Name</th>
-						<th><i class="fa fa-info"></i> Option</th>
-						<th><i class="fa fa-info"></i> SKU</th>
-						<th><i class="fa fa-usd"></i> Sold Price</th>
 						<th><i class="fa fa-money"></i> Original Price</th>
 						<th><i class="fa fa-plus-square-o"></i> Quantity</th>
+						<th><i class="fa fa-usd"></i> Total Price</th>
 					</tr>
 					</thead>
 					<tbody>
 					  <% @order.items.each do |order_item| %>
 					  <tr>
-              <td><%= order_item.product.name %></td>
-              <td><%= order_item.option %></td>
-              <td><%= order_item.sku %></td>
-              <td class="value"><%= money_value(order_item.sold_price) %></td>
+              <td><%= order_item.product_name %></td>
               <td class="value"><%= money_value(order_item.original_price) %></td>
               <td><%= order_item.quantity %></td>
+              <td class="value"><%= money_value(order_item.sold_price) %></td>
 						</tr>
 					  <% end %>
 					</tbody>

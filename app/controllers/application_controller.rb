@@ -50,7 +50,7 @@ class ApplicationController < ActionController::Base
       session[:customer] = customer.sanitize!
     end
     
-    def initialize_cart
+    def initialize_cart(customer=nil)
       session[:cart] ||= {}
       session[:cart]['items'] ||= []
     end
