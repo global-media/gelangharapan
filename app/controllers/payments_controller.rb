@@ -15,7 +15,7 @@ class PaymentsController < ApplicationController
     @result = Veritrans.charge(
       payment_type: "VTWEB",
       vtweb: {
-        enabled_payments: [:credit_card],
+        # enabled_payments: [:credit_card],
         credit_card_3d_secure: true
       },
       transaction_details: {
