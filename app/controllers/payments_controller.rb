@@ -51,6 +51,9 @@ class PaymentsController < ApplicationController
   end
   
   def success
+    @order.status_id = Order.paid
+    @order.save
+    clear_cart_session
     flash[:success] = "Thank you for your support by purchasing our bracelet of Hope bracelet"
     redirect_to pages_bracelet_url(anchor: 'items', lang: 'en') and return
   end
@@ -122,5 +125,9 @@ class PaymentsController < ApplicationController
         redirect_to pages_cart_url and return 
       end
     end
-
+    
+    def clear_cart_session
+      session[:cart] = nil
+      initialize_cart
+    end
 end
