@@ -48,7 +48,7 @@ module AdminHelper
   
   def money_value(number, custom_options={})
     default_options = { 
-                        unit: "IDR ", 
+                        unit: "Rp ", 
                         precision: 2, 
                         delimiter: '.', 
                         strip_insignificant_zeros: true

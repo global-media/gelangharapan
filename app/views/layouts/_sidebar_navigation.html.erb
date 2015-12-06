@@ -71,6 +71,12 @@
     					</li>
   				  </ul>
   				</li>
+  				<%= li_active?('products') %>
+						<%= link_to raw('<i class="icon-handbag"></i> Products'), admin_store_products_url %>
+					</li>
+  				<%= li_active?('shipping_fees') %>
+						<%= link_to raw('<i class="icon-social-dropbox"></i> Shipping Fees'), admin_store_shipping_fees_url %>
+					</li>
 				</ul>
 			</li>
 			<li class="heading">

@@ -3,6 +3,7 @@ class PaymentsController < ApplicationController
   skip_before_filter :verify_authenticity_token, only: [:receive_webhook]
   before_filter :validate_order_id, only: [:notification, :success, :error]
   before_filter :validate_cart, :validate_shipping, only: [:checkout]
+  before_filter :validate_product, only: [:checkout]
   
   protect_from_forgery with: :null_session
   
@@ -131,7 +132,13 @@ class PaymentsController < ApplicationController
     def validate_cart
       if shopping_cart['items'].blank?
         flash[:error] = 'Your shopping cart is empty'
-        redirect_to pages_cart_url and return false
+        render 'pages/cart', :layout => 'pages' and return false
+      end
+      params['cart'].each do |cart_item|
+        shopping_cart['items'].each_with_index do |item, index|
+          next unless item['name'] == cart_item['name']
+          session['cart']['items'][index]['quantity'] = cart_item['quantity']
+        end
       end
     end
     
@@ -141,17 +148,33 @@ class PaymentsController < ApplicationController
         session['cart']['shipping']['address'] = shipping_params[:address]
         session['cart']['shipping']['detail'] = shipping_params[:detail]
         session['cart']['shipping']['phone'] = shipping_params[:phone]
+        session['cart']['shipping']['location'] = shipping_params[:location]
 
         unless shipping_params[:full_name].blank? || 
                 shipping_params[:address].blank? ||
                 shipping_params[:detail].blank? ||
-                shipping_params[:phone].blank?
+                shipping_params[:phone].blank? ||
+                shipping_params[:location].blank?
           return true
         end
       end
       
       flash[:error] = 'Please complete your shipping address'
-      redirect_to pages_cart_url and return false
+      render 'pages/cart', :layout => 'pages' and return false
+    end
+    
+    def validate_product
+      shopping_cart['items'].each do |cart_item|
+        product = Product.where(name: cart_item['name']).first
+        if product.quantity.to_i < cart_item['quantity'].to_i
+          @errors ||= {}
+          @errors[product.name] = ["#{product.quantity} quantity left"]
+        end
+      end
+      unless @errors.blank?
+        flash[:error] = 'Please reduce the number of items in your cart'
+        render 'pages/cart', :layout => 'pages' and return false
+      end
     end
     
     def clear_cart_session

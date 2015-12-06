@@ -254,6 +254,33 @@ module PagesHelper
   def bracelet_items
     str = '<div class="col-md-12 col-xs-12 col-sm-12 bracelet__list">'
     
+    Product.all.active.each do |bracelet|
+      str << '<div class="col-md-4 product col-xs-12 col-sm-4">'
+      str << image_tag(bracelet.image.url, {class: " gelang__list img-responsive"})
+      # str << '<h4><i>'
+      # str << bracelet.name
+      # str << '</i></h4>'
+      str << '<h3>'
+      str << money_value(bracelet.final_price)
+      str << '</h3>'
+      
+      str << form_tag(pages_add_bracelet_url, method: :post)
+      str << hidden_field_tag('bracelet[name]', bracelet.name)
+      str << hidden_field_tag('bracelet[value]', bracelet.final_price)
+      str << '<button>BUY</button>'
+      str << '</form>'
+
+      str << '</div>'
+    end	
+    
+    str << '</div>'
+    	
+    raw(str)
+  end
+  
+  def old_bracelet_items
+    str = '<div class="col-md-12 col-xs-12 col-sm-12 bracelet__list">'
+    
     bracelets.each do |bracelet|
       str << '<div class="col-md-4 product col-xs-12 col-sm-4">'
       str << image_tag(bracelet[:image_path], {class: " gelang__list img-responsive"})
@@ -278,15 +305,20 @@ module PagesHelper
     raw(str)
   end
   
+
   def bracelet_options(bracelet)
+    Product.all.active.find {|item| item.name == bracelet['name']}
+  end
+  
+  def old_bracelet_options(bracelet)
     bracelets.find {|item| item[:name] == bracelet['name']}
   end
   
   def bracelet_total_item_price(bracelet)
     total_price = bracelet['quantity'].to_i * bracelet['value'].to_i
-    pretty_print_price[total_price.to_s] || total_price
+    money_value(total_price)
   end
-  
+    
   protected
   
     def bracelets

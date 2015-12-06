@@ -23,36 +23,36 @@
 							<td class="description col-md-3">Item</td>
 							<td class="price">Price</td>
 							<td class="quantity">Quantity</td>
-							<td class="total">Total</td>
+							<td class="total">Subtotal</td>
 							<td></td>
 						</tr>
 					</thead>
 					<tbody>
-					  <% shopping_cart['items'].each_with_index do |cart_item, index| %>
+					  <% shopping_cart['items'].each do |cart_item| %>
 					  <% next unless bracelet = bracelet_options(cart_item) %>
 						<tr>
 							<td class="cart_product col-md-1">
-							  <%= image_tag(bracelet[:image_path], {class: " img-responsive"}) %>
+							  <%= image_tag(bracelet.image.url, {class: " img-responsive"}) %>
 							</td>
 							<td class="cart_description col-md-3">
-								<h4><%= bracelet[:name] %></h4>
-								<%= hidden_field_tag "cart[#{index}]['name']", bracelet[:name] %>
+								<h4><%= bracelet.name %></h4>
+								<%= hidden_field_tag "cart[][name]", bracelet.name %>
 							</td>
 							<td class="cart_price">
-								<p><%= bracelet[:price] %></p>
+								<p><%= money_value(bracelet.final_price) %></p>
 							</td>
 							<td class="cart_quantity">
 								<div class="cart_quantity_button">
-									<%= link_to ' + ', pages_modify_cart_url(operation: 'add', name: bracelet[:name]), class: "cart_quantity_up" %>
-									<%= text_field_tag "cart[#{index}]['quantity']", cart_item['quantity'], class: 'cart_quantity_input', autocomplete: 'off', size: '2' %>
-									<%= link_to ' - ', pages_modify_cart_url(operation: 'sub', name: bracelet[:name]), class: "cart_quantity_down" %>
+									<%= link_to ' + ', pages_modify_cart_url(operation: 'add', name: bracelet.name), class: "cart_quantity_up" %>
+									<%= text_field_tag "cart[][quantity]", cart_item['quantity'], class: 'cart_quantity_input', autocomplete: 'off', size: '2' %>
+									<%= link_to ' - ', pages_modify_cart_url(operation: 'sub', name: bracelet.name), class: "cart_quantity_down" %>
 								</div>
 							</td>
 							<td class="cart_price">
 								<p class="cart_total_price"><%= bracelet_total_item_price(cart_item) %></p>
 							</td>
 							<td class="cart_delete">
-								<%= link_to raw('<i class="fa fa-times"></i>'), pages_modify_cart_url(operation: 'delete', name: bracelet[:name]), class: "cart_quantity_delete" %>
+								<%= link_to raw('<i class="fa fa-times"></i>'), pages_modify_cart_url(operation: 'delete', name: bracelet.name), class: "cart_quantity_delete" %>
 							</td>
 						</tr>
             <% end %>
@@ -77,6 +77,9 @@
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
           <%= text_field_tag 'shipping[detail]', shopping_cart['shipping']['detail'], {placeholder: "Address Detail"} %>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <%= select_tag 'shipping[location]', options_for_select(shipping_fee_options, shopping_cart['shipping']['location']) %>
         </div>
         <div class="col-md-12 col-sm-12 col-xs-12">
           <%= text_field_tag 'shipping[phone]', shopping_cart['shipping']['phone'], {placeholder: "Phone"} %>

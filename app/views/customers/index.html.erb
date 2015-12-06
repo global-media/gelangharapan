@@ -25,10 +25,10 @@
 							<table class="table table-striped table-bordered table-advance table-hover">
 							<thead>
 							<tr>
-								<th><i class="fa fa-envelope"></i> Email</th>
-								<th><i class="fa fa-user"></i> First Name</th>
-								<th><i class="fa fa-users"></i> Last Name</th>
-								<th><i class="fa fa-pied-piper-alt"></i> Username</th>
+								<th class="col-md-2"><i class="fa fa-envelope"></i> Email</th>
+								<th class="col-md-2"><i class="fa fa-user"></i> Full Name</th>
+								<th class="col-md-1"><i class="fa fa-phone"></i> Phone Num.</th>
+								<th class="col-md-2"><i class="fa fa-map-marker"></i> City</th>
 								<th class="col-md-2">&nbsp;</th>
 							</tr>
 							</thead>
@@ -36,9 +36,9 @@
 							  <% @customers.each do |customer| %>
 							  <tr>
                   <td><%= customer.email %></td>
-                  <td><%= customer.first_name %></td>
-                  <td><%= customer.last_name %></td>
-                  <td><%= customer.username %></td>
+                  <td><%= customer.full_name %></td>
+                  <td><%= customer.phone %></td>
+                  <td><%= customer.city %></td>
                   <td class="col-md-2">
                     <%= link_to raw('<i class="icon-pencil"> Edit</i>'), edit_admin_store_customer_url(id: customer.id), class: "btn btn-warning btn-xs" %>
                     <%= link_to raw('<i class="icon-trash"> Delete</i>'), admin_store_customer_url(id: customer.id), class: "btn btn-danger btn-xs", method: :delete, data: { confirm: "Are you sure you want to delete this customer?" } %>

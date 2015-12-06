@@ -27,4 +27,11 @@
       <div class="form-control-focus"></div>
 		</div>
 	</div>
+	<div class="form-group form-md-line-input">
+		<label class="col-md-2 control-label" for="form_control_1">City</label>
+		<div class="col-md-10">
+      <%= text_field_tag 'customer[city]', @order.customer.city, class: "form-control", placeholder: 'Enter City', id: 'form_control_1', readonly: true %>			
+      <div class="form-control-focus"></div>
+		</div>
+	</div>
 </div>

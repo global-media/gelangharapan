@@ -59,6 +59,8 @@ class Order < ActiveRecord::Base
       order.phone = cart['shipping']['phone']
       order.address = cart['shipping']['address']
       order.detail = cart['shipping']['detail']
+      order.location = cart['shipping']['location']
+      order.shipping = ShippingFee.where(city: cart['shipping']['location']).first.fee
       order.subtotal = 0
       order.total = 0
       order.order_items.destroy_all
