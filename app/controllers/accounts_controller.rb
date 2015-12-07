@@ -1,8 +1,8 @@
 class AccountsController < ApplicationController  
   layout 'pages'
   
-  before_filter :validate_logged_in, only: [:logout]
-  before_filter :validate_logged_out, except: [:logout]
+  before_filter :validate_logged_in, only: [:logout, :profile, :profile_edit, :profile_update]
+  before_filter :validate_logged_out, except: [:logout, :profile, :profile_edit, :profile_update]
   
   def logout
     clear_session
@@ -64,6 +64,27 @@ class AccountsController < ApplicationController
       flash[:error] = 'We are sorry, we cannot update your password at this time'
       @errors = @customer.errors
       render 'reset' and return
+    end
+  end
+  
+  def profile
+    @customer = Customer.find(customer['id'])
+    initialize_customer(@customer)
+  end
+  
+  def profile_edit
+    @customer = Customer.find(customer['id'])
+  end
+
+  def profile_update
+    @customer = Customer.find(customer['id'])
+    if @customer.update_attributes(customer_params)
+      flash[:success] = 'Update success!'
+      redirect_to profile_accounts_url and return
+    else
+      @errors = @customer.errors
+      flash[:error] = "We are sorry, we cannot update your account info at the moment"
+      render 'profile_edit' and return
     end
   end
   

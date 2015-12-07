@@ -101,12 +101,15 @@ Rails.application.routes.draw do
     post 'signup', controller: 'accounts', action: 'register', on: :collection
     post 'forgot', controller: 'accounts', action: 'send_forgot', on: :collection
     post 'reset', controller: 'accounts', action: 'reset_password', on: :collection
+    post 'update', controller: 'accounts', action: 'profile_update', on: :collection
     
     get 'logout', controller: 'accounts', action: 'logout',  on: :collection
     get 'login', controller: 'accounts', action: 'login', on: :collection
     get 'signup', controller: 'accounts', action: 'signup', on: :collection
     get 'forgot', controller: 'accounts', action: 'forgot', on: :collection
     get 'reset', controller: 'accounts', action: 'reset', on: :collection
+    get 'profile', controller: 'accounts', action: 'profile', on: :collection
+    get 'edit', controller: 'accounts', action: 'profile_edit', on: :collection
     # get ':action', controller: 'accounts', on: :collection, as: 'action', except: ['authenticate', 'register', 'reset']
   end
 
