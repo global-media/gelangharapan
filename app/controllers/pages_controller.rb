@@ -53,12 +53,12 @@ class PagesController < ApplicationController
 
   def modify_cart
     if cart_item_index = shopping_cart['items'].index {|item| item['name'] == params[:name]}
-      original_quantity = shopping_cart['items'][cart_item_index]['quantity']
+      original_quantity = shopping_cart['items'][cart_item_index]['quantity'].to_i
       modified_quantity = case params[:operation]
                           when 'add'
-                            shopping_cart['items'][cart_item_index]['quantity'] += 1
+                            shopping_cart['items'][cart_item_index]['quantity'] = original_quantity + 1
                           when 'sub'
-                            shopping_cart['items'][cart_item_index]['quantity'] -= 1
+                            shopping_cart['items'][cart_item_index]['quantity'] = original_quantity - 1
                           when 'delete'
                             shopping_cart['items'][cart_item_index]['quantity'] = 0
                           end
@@ -73,7 +73,8 @@ class PagesController < ApplicationController
     def add_bracelet_to_cart(bracelet)
       shopping_cart['items'] ||=[]
       if cart_item_index = shopping_cart['items'].index {|item| item['name'] == bracelet['name']}
-        shopping_cart['items'][cart_item_index]['quantity'] += 1
+        original_quantity = shopping_cart['items'][cart_item_index]['quantity'].to_i
+        shopping_cart['items'][cart_item_index]['quantity'] = original_quantity + 1
       else
         shopping_cart['items'] << bracelet.merge({quantity: 1})
       end
