@@ -165,7 +165,7 @@ class PaymentsController < ApplicationController
     
     def validate_product
       shopping_cart['items'].each do |cart_item|
-        product = Product.where(name: cart_item['name']).first
+        next unless product = Product.where(name: cart_item['name']).first
         next unless (product.quantity.to_i < cart_item['quantity'].to_i) || (cart_item['quantity'].to_i > 20)
         @errors ||= {}
         @errors[product.name] ||= []

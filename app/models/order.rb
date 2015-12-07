@@ -65,8 +65,9 @@ class Order < ActiveRecord::Base
       order.total = 0
       order.order_items.destroy_all
       cart['items'].each do |cart_item|
-        total_price = cart_item['quantity'].to_i * cart_item['value'].to_i
-        oi = OrderItem.create(sold_price: total_price, original_price: cart_item['value'], quantity: cart_item['quantity'], product_name: cart_item['name'])
+        next unless product = Product.where(name: cart_item['name']).first
+        total_price = cart_item['quantity'].to_i * product.final_price.to_i
+        oi = OrderItem.create(sold_price: total_price, original_price: product.final_price, quantity: cart_item['quantity'], product_name: cart_item['name'])
         order.items << oi
         order.subtotal += total_price
       end
