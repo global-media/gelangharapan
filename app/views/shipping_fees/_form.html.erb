@@ -10,7 +10,7 @@
 		<label class="col-md-2 control-label" for="form_control_1">Fee</label>
 		<div class="col-md-10">
 		  <div class="input-group">  
-  		  <span class="input-group-addon">IDR</span>
+  		  <span class="input-group-addon">Rp</span>
         <%= f.text_field :fee, class: "form-control#{' error' unless @shipping_fee.errors[:fee].blank?}", placeholder: 'Enter Fee', id: 'form_control_1', value: number_format(@shipping_fee.fee) %>
       </div>
       <div class="form-control-focus"></div>

@@ -11,7 +11,7 @@
 		<label class="col-md-2 control-label" for="form_control_1">Original Price</label>
 		<div class="col-md-10">
 		  <div class="input-group">        
-  		  <span class="input-group-addon">IDR</span>
+  		  <span class="input-group-addon">Rp</span>
         <%= text_field_tag "order_item[#{order_item.id}][original_price]", number_format(order_item.original_price), class: "form-control#{' error' unless order_item.errors[:original_price].blank?}", placeholder: 'Enter Original Price', id: 'form_control_1', readonly: 'readonly' %>
         <div class="form-control-focus"></div>
       </div>
@@ -28,7 +28,7 @@
 		<label class="col-md-2 control-label" for="form_control_1">Total Price</label>
 		<div class="col-md-10">
 		  <div class="input-group">  
-  		  <span class="input-group-addon">IDR</span>
+  		  <span class="input-group-addon">Rp</span>
         <%= text_field_tag "order_item[#{order_item.id}][sold_price]", number_format(order_item.sold_price), class: "form-control#{' error' unless order_item.errors[:sold_price].blank?}", placeholder: 'Enter Total Price', id: 'form_control_1' %>
         <div class="form-control-focus"></div>
       </div>

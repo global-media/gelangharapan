@@ -22,7 +22,7 @@
   		<label class="col-md-2 control-label" for="form_control_1">Subtotal</label>
   		<div class="col-md-10">
   		  <div class="input-group">        
-    		  <span class="input-group-addon">IDR</span>
+    		  <span class="input-group-addon">Rp</span>
           <%= text_field_tag "order[subtotal]", number_format(@order.subtotal), class: "form-control#{' error' unless @order.errors[:subtotal].blank?}", placeholder: 'Enter Subtotal', id: 'form_control_1', readonly: 'readonly' %>
           <div class="form-control-focus"></div>
         </div>
@@ -32,7 +32,7 @@
   		<label class="col-md-2 control-label" for="form_control_1">Tax</label>
   		<div class="col-md-10">
   		  <div class="input-group">        
-    		  <span class="input-group-addon">IDR</span>
+    		  <span class="input-group-addon">Rp</span>
           <%= text_field_tag "order[tax]", number_format(@order.tax), class: "form-control#{' error' unless @order.errors[:tax].blank?}", placeholder: 'Enter Tax', id: 'form_control_1', readonly: readonly %>
           <div class="form-control-focus"></div>
         </div>
@@ -42,7 +42,7 @@
   		<label class="col-md-2 control-label" for="form_control_1">Discount</label>
   		<div class="col-md-10">
   		  <div class="input-group">        
-    		  <span class="input-group-addon">IDR</span>
+    		  <span class="input-group-addon">Rp</span>
           <%= text_field_tag "order[discount]", number_format(@order.discount), class: "form-control#{' error' unless @order.errors[:discount].blank?}", placeholder: 'Enter Discount', id: 'form_control_1', readonly: readonly %>
           <div class="form-control-focus"></div>
         </div>
@@ -52,7 +52,7 @@
   		<label class="col-md-2 control-label" for="form_control_1">Shipping</label>
   		<div class="col-md-10">
   		  <div class="input-group">        
-    		  <span class="input-group-addon">IDR</span>
+    		  <span class="input-group-addon">Rp</span>
           <%= text_field_tag "order[shipping]", number_format(@order.shipping), class: "form-control#{' error' unless @order.errors[:shipping].blank?}", placeholder: 'Enter Shipping', id: 'form_control_1', readonly: readonly %>
           <div class="form-control-focus"></div>
         </div>
@@ -62,7 +62,7 @@
   		<label class="col-md-2 control-label" for="form_control_1">Total</label>
   		<div class="col-md-10">
   		  <div class="input-group">        
-    		  <span class="input-group-addon">IDR</span>
+    		  <span class="input-group-addon">Rp</span>
           <%= text_field_tag "order[total]", number_format(@order.total), class: "form-control#{' error' unless @order.errors[:total].blank?}", placeholder: 'Enter Total', id: 'form_control_1', readonly: 'readonly' %>
           <div class="form-control-focus"></div>
         </div>

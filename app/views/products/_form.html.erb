@@ -26,7 +26,7 @@
 		<label class="col-md-2 control-label" for="form_control_1">Base Price</label>
 		<div class="col-md-10">
 		  <div class="input-group">  
-  		  <span class="input-group-addon">IDR</span>
+  		  <span class="input-group-addon">Rp</span>
         <%= f.text_field :base_price, class: "form-control#{' error' unless @product.errors[:base_price].blank?}", placeholder: 'Enter Base Price', id: 'form_control_1', value: number_format(@product.base_price) %>
       </div>
       <div class="form-control-focus"></div>
@@ -45,7 +45,7 @@
 		<label class="col-md-2 control-label" for="form_control_1">Sale Price</label>
 		<div class="col-md-10">
 		  <div class="input-group">  
-  		  <span class="input-group-addon">IDR</span>
+  		  <span class="input-group-addon">Rp</span>
         <%= f.text_field :sale_price, class: "form-control#{' error' unless @product.errors[:sale_price].blank?}", placeholder: 'Enter Sale Price', id: 'form_control_1', value: number_format(@product.sale_price) %>
       </div>
       <div class="form-control-focus"></div>
