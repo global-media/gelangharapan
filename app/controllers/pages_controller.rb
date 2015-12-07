@@ -1,9 +1,34 @@
 class PagesController < ApplicationController
   before_filter :initialize_cart
   before_filter :assign_instance_variables
-
+  before_filter :validate_login, only: [:share_story]
+  
   def show
     redirect_to '/'
+  end
+  
+  def story
+    @story = Story.new
+    @stories = Story.all.active
+  end
+  
+  def share_story
+    @story = Story.new(story_params)
+    @story.customer_id = customer['id']
+    @story.status_id = Story.unmoderated
+    @story.publish_at = Time.now
+    if @story.save
+      flash[:success] = "Thank you for sharing your story"
+      redirect_to pages_story_url and return
+    else
+      @stories = Story.all.active.order(:sort)
+      flash[:error] = 'We cannot save your story at the moment'
+      render 'pages/story' and return
+    end
+  end
+ 
+  def story_detail
+    @story = Story.find(params[:id])
   end
   
   def cart
@@ -54,9 +79,9 @@ class PagesController < ApplicationController
       end
     end
     
-    def assign_instance_variables
-      flash.each do |key, value|
-        instance_variable_set("@#{key}", value)
-      end
+    def story_params
+      params.require(:story).permit!
     end
+    
+    
 end

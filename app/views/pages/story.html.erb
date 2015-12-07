@@ -1,42 +1,44 @@
-  <div id="story" class="container-fluid">
-    <section class="story__content--1">	
- 	  
- 	    <%= render partial: 'layouts/top_navbar' %>
-      
-      <div class="container menu">
+  <div  class="container-fluid">
+  <section class="share">
 
-        <%= render partial: 'layouts/navbar' %>
+    <%= render partial: 'layouts/top_navbar' %>
+    
+    <div class="container menu">
 
-  		</div>
-  		<div class="cover">
-  		</div>
-    </section>
+      <%= render partial: 'layouts/navbar' %>
 
-    <section class="story__content--2">
-    <div class="col-md-12 col-xs-12 col-sm-12">
-  
-      <%= story_header %>
-  
-    </div>
-    </section>
-
-    <section class="artist-video">
-  
-      <%= raw(story_videos_static) %>
-
-    </section>
-  </div>	
-  <div class="modal fade " id="myModal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true"> 
-		<div class="modal-dialog modal-md" role="document">
-			<div class="modal-content">
-				<div class="modal-body">
-				  <video  class="video-artist" width="100%" height="240" controls>
-            <source class="video-link"  src="" type="video/mp4">
-          </video>
-				</div>
-				<div class="modal-footer">
-					<button type="button" onclick="stopVideo()" class="close-video btn btn-default" data-dismiss="modal" >Close</button>
-				</div>
-			</div>
 		</div>
+		<div class="container ">
+
+      <%= render partial: 'layouts/messages' %>	
+
+  		<section class="share__write">
+      
+        <%= story_header %>
+
+      </section>
+
+	<section class="share__list">
+	<hr>
+  <% @stories.each do |story| %>
+	<div class="col-md-4 col-xs-12 col-sm-12 content">
+  	<h3><%= story.title %></h3>
+  	<h5>by <%= story.customer.full_name %></h5>
+  	<p><%= story.short_post %></p>
+  	<hr>
+  	<p class="pull-left"><%= story.publish_at.strftime("%d-%m-%Y %H:%M") %></p>
+  	<p class="pull-right"><%= link_to 'Read', pages_story_detail_url(id: story.id) %></p>
 	</div>
+  <% end %>
+
+		</section>
+
+
+		</div>
+	
+		</section>
+	
+	
+
+
+  </div>

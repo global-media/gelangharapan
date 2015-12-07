@@ -42,6 +42,10 @@ Rails.application.routes.draw do
         post 'sort', on: :collection
         resources :images, only: [:create, :destroy]
       end
+      resources :campaigns do
+        post 'sort', on: :collection
+        resources :images, only: [:create, :destroy]
+      end
 
       resources :categories do
         post 'sort', on: :collection
@@ -123,6 +127,9 @@ Rails.application.routes.draw do
   get ':lang/events', controller: 'pages', action: 'events', as: 'pages_events'
   get ':lang/bracelet', controller: 'pages', action: 'bracelet', as: 'pages_bracelet'
   get ':lang/story', controller: 'pages', action: 'story', as: 'pages_story'
+  get ':lang/story/:id', controller: 'pages', action: 'story_detail', as: 'pages_story_detail'
+  post ':lang/story', controller: 'pages', action: 'share_story', as: 'pages_share_story'
+  get ':lang/campaign', controller: 'pages', action: 'campaign', as: 'pages_campaign'
   get ':lang/contact', controller: 'pages', action: 'contact', as: 'pages_contact'
   
   get ':lang', controller: 'pages', action: 'index', as: 'pages_lang', :defaults => {:lang => "id"}

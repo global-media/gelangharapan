@@ -1,5 +1,6 @@
 class Customer < ActiveRecord::Base
   has_many :orders
+  has_many :stories
   # belongs_to :address
   
   validates_presence_of :email, :full_name, unless: Proc.new {|c| c.reset_password? }

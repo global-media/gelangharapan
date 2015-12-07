@@ -1,13 +1,11 @@
-<%= render partial: 'stories/header', locals: {breadcrumbs: [@story.name]} %>
+<%= render partial: 'stories/header', locals: {breadcrumbs: [@story.title]} %>
 
 <%= form_for @story, {url: admin_contents_story_url, role: 'form', method: 'put', multipart: true, html: {class: 'form-horizontal'}} do |f| %>
 
 <div class="row">
-	<div class="col-md-11">
-    <%= button_tag 'Update Story', type: 'submit', class: "btn btn-primary pull-right" %>
-  </div>
-  <div class="col-md-1">
-    <%= button_tag 'Reset', class: "btn btn-default pull-right", type: 'reset' %>
+  <div class="col-md-offset-9 col-md-3">
+    <%= button_tag 'Update', type: 'submit', class: "btn btn-primary green" %>
+    <%= button_tag 'Reset', class: "btn btn-default", type: 'reset' %>
   </div>
 </div>
 
@@ -25,5 +23,5 @@
 		<!-- END SAMPLE FORM PORTLET-->
 	</div>
 </div>
-<% end %>
 <!-- END PAGE CONTENT-->
+<% end %>

@@ -132,7 +132,7 @@ module PagesHelper
     raw(str)
   end
   
-  def story_header
+  def campaign_header
     str = '<center><div class="balon"></div>'
     str << '<h3><b>#IamHope</b><i>Campaign</i></h3><p>'
     str << if english?
@@ -173,7 +173,7 @@ module PagesHelper
     raw(str)
   end
   
-  def story_videos
+  def campaign_videos
     str = '<div class="col-md-12 col-xs-12" style="padding:0px">'
     
     Story.active.order(:sort).each do |story|
@@ -192,7 +192,7 @@ module PagesHelper
     raw(str)
   end
   
-  def story_videos_static
+  def campaign_videos_static
     <<-EOF
     <div class="col-md-4 col-xs-6 col-sm-4 artis" style="padding:0px">
     <img class="img-responsive" data-target="#myModal" data-toggle="modal" src="#{asset_path 'img/Story/artis/wulan.jpg'}">
@@ -257,9 +257,9 @@ module PagesHelper
     Product.all.active.each do |bracelet|
       str << '<div class="col-md-4 product col-xs-12 col-sm-4">'
       str << image_tag(bracelet.image.url, {class: " gelang__list img-responsive"})
-      # str << '<h4><i>'
-      # str << bracelet.name
-      # str << '</i></h4>'
+      str << '<h4><i>'
+      str << bracelet.name
+      str << '</i></h4>'
       str << '<h3>'
       str << money_value(bracelet.final_price)
       str << '</h3>'
@@ -267,7 +267,11 @@ module PagesHelper
       str << form_tag(pages_add_bracelet_url, method: :post)
       str << hidden_field_tag('bracelet[name]', bracelet.name)
       str << hidden_field_tag('bracelet[value]', bracelet.final_price)
-      str << '<button>BUY</button>'
+      if bracelet.quantity.to_i <= 0
+        str << '<h4><i>Sold Out</i></h4>'
+      else
+        str << '<button>BUY</button>'
+      end
       str << '</form>'
 
       str << '</div>'
@@ -317,6 +321,23 @@ module PagesHelper
   def bracelet_total_item_price(bracelet)
     total_price = bracelet['quantity'].to_i * bracelet['value'].to_i
     money_value(total_price)
+  end
+  
+  def story_header
+    str = '<center><h3><i>Share your</i> <b>STORY</b></h3><p>'
+    # str << 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum'
+    str << '</p>'	
+    
+    str << '<div class="col-md-12"><div class="row">'
+    str << form_tag(pages_share_story_url, method: 'post')
+    str << text_field_tag('story[title]', @story.title, placeholder: 'TITLE')
+    str << '</div><div class="row">'
+    str << text_area_tag('story[post]', @story.post, placeholder: 'WRITE YOUR STORY')
+    str << '</div><div class="row">'
+    str << '<button>Share My Story</button>'
+    str << '</div></div></center>'
+    
+    raw(str)
   end
     
   protected

@@ -18,7 +18,8 @@
   			<li><%= link_to 'Info Kesehatan Hope', pages_news_url(lang: 'id') %></li>
   			<li><%= link_to 'Event akan datang', pages_events_url(lang: 'id') %></li>
   			<li><%= link_to 'Gelang Harapan Hope', pages_bracelet_url(lang: 'id') %></li>
-  			<li><%= link_to '#IamHope Campaign', pages_story_url(lang: 'id') %></li>
+  			<li><%= link_to 'Berbagi Cerita', pages_story_url(lang: 'id') %></li>
+  			<li><%= link_to '#IamHope Campaign', pages_campaign_url(lang: 'id') %></li>
   			<li><%= link_to 'Kontak Kami', pages_contact_url(lang: 'id') %></li>
       <% else %>
   			<li><%= link_to 'Journey of Hope', pages_journey_url(lang: (params[:lang] || 'en')) %></li>
@@ -26,7 +27,8 @@
   			<li><%= link_to 'Hope Health News', pages_news_url(lang: (params[:lang] || 'en')) %></li>
   			<li><%= link_to 'Upcoming Events', pages_events_url(lang: (params[:lang] || 'en')) %></li>
   			<li><%= link_to 'Buy a Bracelet', pages_bracelet_url(lang: (params[:lang] || 'en')) %></li>
-  			<li><%= link_to '#IamHope Campaign', pages_story_url(lang: (params[:lang] || 'en')) %></li>
+  			<li><%= link_to 'Share your Story', pages_story_url(lang: (params[:lang] || 'en')) %></li>
+  			<li><%= link_to '#IamHope Campaign', pages_campaign_url(lang: (params[:lang] || 'en')) %></li>
   			<li><%= link_to 'Contact Us', pages_contact_url(lang: (params[:lang] || 'en')) %></li>
       <% end %>
 		</ul>  	

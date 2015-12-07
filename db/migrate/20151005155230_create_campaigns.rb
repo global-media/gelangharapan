@@ -1,6 +1,6 @@
-class CreateStories < ActiveRecord::Migration
+class CreateCampaigns < ActiveRecord::Migration
   def change
-    create_table :stories do |t|
+    create_table :campaigns do |t|
       t.string      :name
       t.string      :link_url
       t.attachment  :image

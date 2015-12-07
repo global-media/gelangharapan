@@ -166,10 +166,11 @@ class PaymentsController < ApplicationController
     def validate_product
       shopping_cart['items'].each do |cart_item|
         product = Product.where(name: cart_item['name']).first
-        if product.quantity.to_i < cart_item['quantity'].to_i
-          @errors ||= {}
-          @errors[product.name] = ["#{product.quantity} quantity left"]
-        end
+        next unless (product.quantity.to_i < cart_item['quantity'].to_i) || (cart_item['quantity'].to_i > 20)
+        @errors ||= {}
+        @errors[product.name] ||= []
+        @errors[product.name] << "cannot be more than 20 bracelets" if (cart_item['quantity'].to_i > 20)
+        @errors[product.name] << "#{product.quantity} quantity left" if (product.quantity.to_i < cart_item['quantity'].to_i)
       end
       unless @errors.blank?
         flash[:error] = 'Please reduce the number of items in your cart'

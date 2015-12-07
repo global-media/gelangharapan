@@ -103,4 +103,11 @@ class ApplicationController < ActionController::Base
       session[:redirect_to] = nil
       url || :back
     end
+    
+    def assign_instance_variables
+      flash.each do |key, value|
+        instance_variable_set("@#{key}", value)
+      end
+    end
+    
 end
