@@ -1,5 +1,5 @@
 class PaymentsController < ApplicationController
-  before_filter :validate_login
+  before_filter :validate_login, except: [:receive_webhook, :notification]
   before_filter :validate_order_id, only: [:notification, :success, :error]
   before_filter :validate_cart, :validate_shipping, only: [:checkout]
   before_filter :validate_product, only: [:checkout]
