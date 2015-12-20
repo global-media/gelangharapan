@@ -1,10 +1,10 @@
 class PaymentsController < ApplicationController
   before_filter :validate_login
-  skip_before_filter :verify_authenticity_token, only: [:receive_webhook]
   before_filter :validate_order_id, only: [:notification, :success, :error]
   before_filter :validate_cart, :validate_shipping, only: [:checkout]
   before_filter :validate_product, only: [:checkout]
   
+  skip_before_filter :verify_authenticity_token, only: [:receive_webhook, :notification]
   protect_from_forgery with: :null_session
   
   def checkout
