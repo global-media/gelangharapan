@@ -28,18 +28,27 @@ class PaymentsController < ApplicationController
       item_details: prepare_item_details(@order, shopping_cart),
       customer_details: {
         first_name: customer['full_name'],
-        last_name: '',
+        # last_name: '',
         email: customer['email'],
-        phone: customer['phone']
-      },
-      shipping_address: {
-        first_name: shopping_cart['shipping']['full_name'],
-        last_name: '',
-        address: "#{shopping_cart['shipping']['address']} #{shopping_cart['shipping']['detail']}",
-        city: shopping_cart['shipping']['location'],
-        # postal_code: ,
-        phone: shopping_cart['shipping']['phone'],
-        country_code: 'IDN'
+        phone: customer['phone'],
+        billing_address: {
+          first_name: shopping_cart['shipping']['full_name'],
+          # last_name: '',
+          # address: "#{shopping_cart['shipping']['address']} #{shopping_cart['shipping']['detail']}",
+          # city: shopping_cart['shipping']['location'],
+          # postal_code: '',
+          phone: shopping_cart['shipping']['phone'],
+          # country_code: 'IDN'
+        },
+        shipping_address: {
+          first_name: shopping_cart['shipping']['full_name'],
+          # last_name: '',
+          address: "#{shopping_cart['shipping']['address']} #{shopping_cart['shipping']['detail']}",
+          city: shopping_cart['shipping']['location'],
+          # postal_code: '',
+          phone: shopping_cart['shipping']['phone'],
+          country_code: 'IDN'
+        }
       }
     )
     redirect_to @result.redirect_url and return
