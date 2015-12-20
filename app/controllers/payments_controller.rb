@@ -22,10 +22,27 @@ class PaymentsController < ApplicationController
       transaction_details: {
         order_id: @payment.order_id,
         gross_amount: @payment.amount
+      },
+      custom_field1: @order.id,         # Order ID
+      # custom_field2: @order.shipping,   # Shipping Fee
+      item_details: prepare_item_details(@order, shopping_cart),
+      customer_details: {
+        first_name: customer['full_name'],
+        last_name: '',
+        email: customer['email'],
+        phone: customer['phone']
+      },
+      shipping_address: {
+        first_name: shopping_cart['shipping']['full_name'],
+        last_name: '',
+        address: "#{shopping_cart['shipping']['address']} #{shopping_cart['shipping']['detail']}",
+        city: shopping_cart['shipping']['location'],
+        # postal_code: ,
+        phone: shopping_cart['shipping']['phone'],
+        country_code: 'IDN'
       }
     )
     redirect_to @result.redirect_url and return
-    # redirect_to pages_cart_url and return
   end
   
 
@@ -181,5 +198,23 @@ class PaymentsController < ApplicationController
     def clear_cart_session
       session[:cart] = nil
       initialize_cart
+    end
+    
+    def prepare_item_details(order, cart)
+      cart_items = []
+      cart['items'].each do |cart_item|
+        cart_items << {
+                        # id: cart_item,
+                        price: cart_item['value'],
+                        quantity: cart_item['quantity'],
+                        name: cart_item['name']
+                      }
+      end
+      cart_items << {
+                      price: order.shipping,
+                      quantity: 1,
+                      name: 'Shipping Fee'
+                    }
+      cart_items
     end
 end
