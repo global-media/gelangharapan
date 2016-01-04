@@ -24,7 +24,7 @@ class PaymentsController < ApplicationController
         gross_amount: @payment.amount
       },
       custom_field1: @order.id,         # Order ID
-      # custom_field2: @order.shipping,   # Shipping Fee
+      custom_field2: shopping_cart['shipping']['location'],   # Shipping Location
       item_details: prepare_item_details(@order, shopping_cart),
       customer_details: {
         first_name: customer['full_name'],
@@ -211,6 +211,11 @@ class PaymentsController < ApplicationController
     
     def prepare_item_details(order, cart)
       cart_items = []
+      cart_items << {
+                      price: order.shipping,
+                      quantity: 1,
+                      name: 'Shipping Fee'
+                    }
       cart['items'].each do |cart_item|
         cart_items << {
                         # id: cart_item,
@@ -219,11 +224,6 @@ class PaymentsController < ApplicationController
                         name: cart_item['name']
                       }
       end
-      cart_items << {
-                      price: order.shipping,
-                      quantity: 1,
-                      name: 'Shipping Fee'
-                    }
       cart_items
     end
 end
