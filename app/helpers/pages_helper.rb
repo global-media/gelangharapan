@@ -127,6 +127,8 @@ module PagesHelper
     
     str << bracelet_items
     
+    str << '<div class="center"><h4>* Pengiriman 5 hari kerja setelah transaksi</h4></div>'
+    
     str << '</center>'
     
     raw(str)
