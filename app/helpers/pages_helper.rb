@@ -194,6 +194,14 @@ module PagesHelper
     raw(str)
   end
   
+  def iamhope_campaign_instagram
+    <<-EOF
+    <!-- SnapWidget -->
+    <script src="http://snapwidget.com/js/snapwidget.js"></script>
+    <iframe src="http://snapwidget.com/in/?h=aWFtaG9wZXxpbnw1MDB8NHw0fHxub3w1fG5vbmV8b25TdGFydHx5ZXN8eWVz&ve=050116" title="Instagram Widget" class="snapwidget-widget" allowTransparency="true" frameborder="0" scrolling="no" style="border:none; overflow:hidden; width:100%;"></iframe>
+    EOF
+  end
+  
   def campaign_videos_static
     <<-EOF
     <div class="col-md-4 col-xs-6 col-sm-4 artis" style="padding:0px">
