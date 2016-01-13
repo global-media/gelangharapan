@@ -46,6 +46,7 @@ class PagesController < ApplicationController
   end
   
   def add_bracelet
+    redirect_to 'http://rajakarcis.com/2015/12/29/film-i-am-hope/' and return
     add_bracelet_to_cart(params[:bracelet])
     flash[:success] = "You have added #{params[:bracelet][:name]} bracelet to your cart"
     redirect_to pages_bracelet_url(anchor: 'items') and return
