@@ -11,16 +11,45 @@
 	
 	<div class="container">
 		
-		<%= news_header %>
+    <%= render partial: 'layouts/messages' %>	
 
-    <div class="col-md-12 col-xs-12 col-sm-12 health__video ">
-    <div class="col-md-offset-2 col-md-4   col-sm-6">
-    <%= image_tag('img/health/health-1.jpg') %>
-    </div>
-    <div class=" col-md-4 col-sm-6">
-      <%= image_tag('img/health/health-2.jpg') %>
-    </div>
-    </div>
+		<section class="share__list">
+		  
+  		<%= news_header %>
+
+      <div class="col-md-12 col-xs-12 col-sm-12 health__video ">
+      <div class="col-md-offset-2 col-md-4   col-sm-6">
+      <%= image_tag('img/health/health-1.jpg') %>
+      </div>
+      <div class=" col-md-4 col-sm-6">
+        <%= image_tag('img/health/health-2.jpg') %>
+      </div>
+      </div>
+
+		</section>
+		    
+    <section class="share__write">
+    
+      <%= health_header %>
+
+    </section>
+    
+  	<section class="share__list">
+  	  
+    	<hr>
+      <% @healths.each do |health| %>
+    	<div class="col-md-4 col-xs-12 col-sm-12 content">
+      	<h3><%= health.title %></h3>
+      	<p>Question: <%= health.short_question %></p>
+      	<p>Answer: <%= health.short_answer %></p>
+      	<hr>
+      	<p class="pull-left"><%= health.publish_at.strftime("%d-%m-%Y %H:%M") %></p>
+      	<p class="pull-right"><%= link_to 'Read', pages_health_detail_url(id: health.id) %></p>
+    	</div>
+      <% end %>
+
+	</section>
+
 	</div>
 
 	</section>

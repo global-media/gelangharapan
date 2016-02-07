@@ -1,11 +1,11 @@
-class CreateStories < ActiveRecord::Migration
+class CreateHealths < ActiveRecord::Migration
   def change
-    create_table :stories do |t|
+    create_table :healths do |t|
       t.string      :title
-      t.text        :post
+      t.text        :question
+      t.text        :answer
       t.integer     :status_id
       t.integer     :customer_id
-      t.integer     :sort
       t.datetime    :publish_at
       t.datetime    :retract_at
       t.timestamps  null: false

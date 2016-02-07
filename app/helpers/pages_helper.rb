@@ -353,6 +353,23 @@ module PagesHelper
     raw(str)
   end
     
+  def health_header
+    return ''
+    str = '<center><h3><i>ASK for your</i> <b>HEALTH</b></h3><p>'
+    str << '</p>'	
+    
+    str << '<div class="col-md-12"><div class="row">'
+    str << form_tag(pages_share_health_url, method: 'post')
+    str << text_field_tag('health[title]', '', placeholder: 'TITLE')
+    str << '</div><div class="row">'
+    str << text_area_tag('health[question]', '', placeholder: 'WRITE HEALTH QUESTION')
+    str << '</div><div class="row">'
+    str << '<button>Ask My Health</button>'
+    str << '</div></div></center>'
+    
+    raw(str)
+  end
+  
   protected
   
     def bracelets

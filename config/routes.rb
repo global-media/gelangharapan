@@ -34,6 +34,9 @@ Rails.application.routes.draw do
         post 'sort', on: :collection
         resources :images, only: [:create, :destroy]
       end
+      resources :healths do
+        post 'sort', on: :collection
+      end
       resources :galleries do
         post 'sort', on: :collection
         resources :images, only: [:create, :destroy]
@@ -127,6 +130,8 @@ Rails.application.routes.draw do
   get ':lang/journey', controller: 'pages', action: 'journey', as: 'pages_journey'
   get ':lang/people', controller: 'pages', action: 'people', as: 'pages_people'
   get ':lang/news', controller: 'pages', action: 'news', as: 'pages_news'
+  get ':lang/health/:id', controller: 'pages', action: 'health_detail', as: 'pages_health_detail'
+  post ':lang/health', controller: 'pages', action: 'share_health', as: 'pages_share_health'
   get ':lang/events', controller: 'pages', action: 'events', as: 'pages_events'
   get ':lang/bracelet', controller: 'pages', action: 'bracelet', as: 'pages_bracelet'
   get ':lang/story', controller: 'pages', action: 'story', as: 'pages_story'

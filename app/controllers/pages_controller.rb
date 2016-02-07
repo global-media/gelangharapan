@@ -1,7 +1,7 @@
 class PagesController < ApplicationController
   before_filter :initialize_cart
   before_filter :assign_instance_variables
-  before_filter :validate_login, only: [:share_story]
+  before_filter :validate_login, only: [:share_story, :share_health]
   
   def show
     redirect_to '/'
@@ -10,6 +10,10 @@ class PagesController < ApplicationController
   def story
     @story = Story.new
     @stories = Story.all.active
+  end
+
+  def news
+    @healths = Health.all.active
   end
   
   def share_story
@@ -27,8 +31,27 @@ class PagesController < ApplicationController
     end
   end
  
+  def share_health
+    @health = Health.new(health_params)
+    @health.customer_id = customer['id']
+    @health.status_id = Health.unmoderated
+    @health.publish_at = Time.now
+    if @health.save
+      flash[:success] = "Thank you for sharing your health question"
+      redirect_to pages_news_url and return
+    else
+      @stories = Health.all.active.order(:sort)
+      flash[:error] = 'We cannot save your health question at the moment'
+      render 'pages/news' and return
+    end
+  end
+  
   def story_detail
     @story = Story.find(params[:id])
+  end
+
+  def health_detail
+    @health = Health.find(params[:id])
   end
   
   def cart
@@ -85,5 +108,7 @@ class PagesController < ApplicationController
       params.require(:story).permit!
     end
     
-    
+    def health_params
+      params.require(:health).permit!
+    end    
 end

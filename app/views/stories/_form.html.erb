@@ -1,27 +1,27 @@
 <div class="form-body">
   <div class="form-group form-md-line-input<%' has-error' unless @story.errors[:status_id].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Status</label>
+		<label class="col-md-3 control-label" for="form_control_1">Status</label>
 		<div class="col-md-9">
     	<%= f.select :status_id, story_status_options, {selected: @story.status_id}, class: "form-control input-xlarge select2me#{' error' unless @story.errors[:status_id].blank?}", "data-placeholder" => "Select Status..." %>
       <div class="form-control-focus"></div>
 		</div>
 	</div>
 	<div class="form-group form-md-line-input<%' has-error' unless @story.errors[:title].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Title</label>
+		<label class="col-md-3 control-label" for="form_control_1">Title</label>
 		<div class="col-md-9">
       <%= f.text_field :title, class: "form-control#{' error' unless @story.errors[:title].blank?}", placeholder: 'Enter Title', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
 	<div class="form-group form-md-line-input<%' has-error' unless @story.errors[:post].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Post</label>
+		<label class="col-md-3 control-label" for="form_control_1">Post</label>
 		<div class="col-md-9">
       <%= f.text_area :post, class: "form-control autosizeme#{' error' unless @story.errors[:post].blank?}", placeholder: 'Enter Post', id: 'form_control_1' %>			
       <div class="form-control-focus"></div>
 		</div>
 	</div>
 	<div class="form-group form-md-line-input<%' has-error' unless @story.errors[:publish_at].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Publish Time</label>
+		<label class="col-md-3 control-label" for="form_control_1">Publish Time</label>
 		<div class="col-md-9">
 			<div class="input-group date form_datetime">
 				<%= f.text_field :publish_at, value: datetime_value(@story.publish_at), class: "form-control#{' error' unless @story.errors[:publish_at].blank?}", size: 16, placeholder: 'Select Publish Time' %>	
@@ -33,7 +33,7 @@
 		</div>
 	</div>
   <div class="form-group form-md-line-input<%' has-error' unless @story.errors[:retract_at].blank? %>">
-		<label class="col-md-2 control-label" for="form_control_1">Retract Time</label>
+		<label class="col-md-3 control-label" for="form_control_1">Retract Time</label>
 		<div class="col-md-9">
 			<div class="input-group date form_datetime">
 				<%= f.text_field :retract_at, value: datetime_value(@story.retract_at), class: "form-control#{' error' unless @story.errors[:retract_at].blank?}", size: 16, placeholder: 'Select Retract Time' %>	

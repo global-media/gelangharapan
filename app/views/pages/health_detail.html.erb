@@ -1,0 +1,25 @@
+  <div  class="container-fluid">
+  <section class="share">
+    <%= render partial: 'layouts/top_navbar' %>
+    
+    <div class="container menu">
+
+      <%= render partial: 'layouts/navbar' %>
+
+		</div>
+		<div class="container ">
+
+    <section class="share__list--detail">
+
+  		<div class="col-md-12  col-xs-12 col-sm-12 content">
+      	<h3><%= @health.title %></h3>
+      	<p>Question: <%= @health.question %></p>
+      	<p>Answer:<%= @health.answer %></p>
+	
+    	</div>
+		</section>
+
+		</div>
+	
+	</section>
+  </div>
